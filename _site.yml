@@ -11,7 +11,7 @@ navbar:
       href: tutorials.html
     - text: "Stat/ML"
       menu: 
-      - text: "Predicting House Prices in Iowa"
+      - text: "Predicting Credit Card Applicant Risk Level "
         href: stat1.html
     - text: "DB/SQL"
       menu: 

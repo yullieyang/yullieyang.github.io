@@ -14,9 +14,9 @@ output:
 
 <br><br><br>
 
-## **Predicting Risk Level Among Credit Card Applicants**
+## **Predicting Credit Card Applicant Risk Level**
 
-![](https://img.shields.io/badge/Using-Python-blue)
+![](https://img.shields.io/badge/-Python-blue)
 ![](https://img.shields.io/badge/-EDA-9CF)
 ![](https://img.shields.io/badge/-logistic%20regression-ff69b4)
 ![](https://img.shields.io/badge/-Random%20Forest-brightgreen)
