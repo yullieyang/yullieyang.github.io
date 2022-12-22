@@ -56,7 +56,7 @@ To predict the final price of each home using 79 explanatory variables describin
 
 ### 4. Code
 
-Please click [HERE](https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda/report) for the analysis report and code.
+Please click [HERE](files/Predicting Risky Credit Card Applicants.pdf) for the analysis report and [HERE](files/Predicting Risky Credit Card Applicants.ipynb) for the code.
 
 <br>
 
