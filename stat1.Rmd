@@ -14,12 +14,13 @@ output:
 
 <br><br><br>
 
-## **Predicting House Prices in Iowa**
+## **Predicting Risk Level Among Credit Card Applicants**
 
 ![](https://img.shields.io/badge/Using-Python-blue)
-![](https://img.shields.io/badge/-LASSO-red)
-![](https://img.shields.io/badge/-XGBoost-success)
-
+![](https://img.shields.io/badge/-EDA-9CF)
+![](https://img.shields.io/badge/-logistic%20regression-ff69b4)
+![](https://img.shields.io/badge/-Random%20Forest-brightgreen)
+![](https://img.shields.io/badge/-decision%20tree-success)
 <br>
 
 🚨**THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.**

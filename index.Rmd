@@ -15,9 +15,9 @@ output: html_document
 
 🚨*THIS IS A FICTIONAL PROFILE MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.* 
 <br><br><br>
-👋🏽 Hello, my name is John Appleseed.
+👋🏽 Hello, my name is Yullie Yang.
 
-🎓 Soon to be grad with a M.S. in Data Science at ABC University. (May 2022)
+🎓 Soon to be grad with a M.S. in Business Analytics at University of Maryland, College Park. (December 2023)
 
 🌇 New York City Native, with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
 
