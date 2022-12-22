@@ -24,16 +24,16 @@ navbar:
   right:
     - icon: fas fa-envelope
       href: contact.html
-    #- icon: ai-cv ai-lg
-    #  href: files/sample_resume.pdf
+    - icon: ai-cv ai-lg
+      href: files/YullieYangResume.pdf
     - icon: fab fa-github
-      href: http://github.com/
+      href: https://github.com/yullieyang
     - icon: fab fa-linkedin-in
-      href: https://www.linkedin.com/
-    - icon: ai-google-scholar ai-lg
-      href: https://scholar.google.com/
-    - icon: ai-researchgate ai-lg
-      href: https://www.researchgate.net/
+      href: https://www.linkedin.com/in/yullie-yang/
+    #- icon: ai-google-scholar ai-lg
+      #href: https://scholar.google.com/
+    #- icon: ai-researchgate ai-lg
+      #href: https://www.researchgate.net/
 output:
   html_document:
     theme: cosmo
