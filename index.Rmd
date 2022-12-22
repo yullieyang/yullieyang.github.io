@@ -41,3 +41,5 @@ e.g. 💪 Specialties in analyzing customer-driven data from e-commerce and appl
 + Data visualization: Tableau Software, Power BI
 + Database: SQL, Postgre SQL, MongoDB, Neo4j
 + Cloud Computing: AWS, GCP (BigQuery), Azure
+
+For more details, resume is available [here](files/YullieYangResume.pdf).
