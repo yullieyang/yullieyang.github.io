@@ -42,8 +42,7 @@ output:
 <br><br>
 
 ### 2. Goal
-To predict the final price of each home using 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa.
-
+To predict the risk level of credit scores, we used customer profile information along with credit records.
 <br>
 
 ### 3. Methodology & Summary

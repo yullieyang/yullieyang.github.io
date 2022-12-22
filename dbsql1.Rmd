@@ -14,11 +14,10 @@ output:
 
 <br><br><br>
 
-## **Movie Explorer**
+## **E-bay Transaction Analysis**
 
-![](https://img.shields.io/badge/Using-R-blue)
-![](https://img.shields.io/badge/-SQL-red)
-![](https://img.shields.io/badge/-Shiny%20App-success)
+![](https://img.shields.io/badge/-SQL-green)
+![](https://img.shields.io/badge/-tableau-blue)
 
 <br>
 
@@ -38,13 +37,13 @@ output:
 
 ### 2. Summary
 
-+ blah blah blah
-
+James’ computer and electronic retail shop hired YLY consultant co. for data analysis. This retail shop currently faced an issue that the price of wholesale has been increasing, but the profits of the retail shop has stayed on the same level of 2021. Therefore, the owner of the retail shop wants to build insights on maximizing profit and minimizing costs based on inventory turnover ratio.
 <br><br><br>
 
-### 3. Live Demo
+### 3. Resources
 
-For more insights, please check my Shiny App Live Demo by clicking [HERE](https://shiny.rstudio.com/gallery/movie-explorer.html).
+For more insights, please check presentation slides by clicking [HERE](files/E-bay_Presentation.pdf).
+You can find proposal by clicking [HERE](files/E-bay_Proposal.pdf), read me by clicking [HERE](files/E-bay_Preadme.pdf).
 
 
 

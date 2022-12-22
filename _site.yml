@@ -11,11 +11,11 @@ navbar:
       href: tutorials.html
     - text: "Stat/ML"
       menu: 
-      - text: "Predicting Risky Credit Card Applicants"
+      - text: "Predicting Risky Credit Card Applicants "
         href: stat1.html
     - text: "DB/SQL"
       menu: 
-      - text: "Movie Explorer"
+      - text: "E-bay Transaction Analysis"
         href: dbsql1.html
     - text: "Visualization"
       menu: 
