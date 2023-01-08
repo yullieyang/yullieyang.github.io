@@ -1,0 +1,46 @@
+---
+pagetitle: "Optimization"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+     collapsed: false
+     smooth_scroll: false
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+<br><br><br>
+
+## **Bus Routing Optimization **
+
+
+
+<br>
+
+<br><br><br>
+
+### 1. Screenshot of Dashboard
+
+<p align="center">
+<img src="images/bus_routing_optimization.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+</p>
+<p align="center">
+</p>
+
+<br><br><br>
+
+### 2. Summary
+
+
+<br><br><br>
+
+### 3. Presentation
+
+For more insights, please check my Presentation slide by clicking [HERE](files/Bus Routing Optimization Helps Boston Public Schools Design Better Policies.pdf).
+
+
+
+
