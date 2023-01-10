@@ -39,8 +39,17 @@ output:
 
 ### 3. Presentation
 
-For more insights, please check my Presentation slide by clicking [HERE](files/Bus Routing Optimization Helps Boston Public Schools Design Better Policies.pdf).
+For more insights, please check my Presentation slide by clicking   [HERE](files/Bus Routing Optimization Helps Boston Public Schools Design Better Policies.pdf).
 
+<br><br><br>
+
+### 4. References
+
+Bertsimas, Dimitris, et al. “Bus Routing Optimization Helps Boston Public Schools Design Better Policies.” INFORMS Journal on Applied Analytics, vol. 50, no. 1, 2020, pp. 37–49., https://doi.org/10.1287/inte.2019.1015.
+
+Yan, Yadan, et al. “Robust Optimization Model of Schedule Design for a Fixed Bus
+Route.” Transportation Research Part C: Emerging Technologies, vol. 25, 2012, pp. 113–
+121., https://doi.org/10.1016/j.trc.2012.05.006.
 
 
 

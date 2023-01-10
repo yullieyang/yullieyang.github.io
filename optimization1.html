@@ -11,7 +11,7 @@
 
 
 
-<title>Stat1</title>
+<title>Optimization</title>
 
 <script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -356,6 +356,18 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Optimization
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="optimization1.html">Bus Routing Optimization </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Visualization
      
     <span class="caret"></span>
@@ -408,58 +420,41 @@ div.tocify {
 <p><link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/></p>
 <p><br><br><br></p>
-<div id="predicting-risky-credit-card-applicants"
-class="section level2">
-<h2><strong>Predicting Risky Credit Card Applicants </strong></h2>
-<p><img src="https://img.shields.io/badge/-Python-blue" /> <img
-src="https://img.shields.io/badge/-EDA-9CF" /> <img
-src="https://img.shields.io/badge/-Logistic%20Regression-ff69b4" /> <img
-src="https://img.shields.io/badge/-Random%20Forest-brightgreen" /> <img
-src="https://img.shields.io/badge/-Decision%20Tree-success" /> <br></p>
-<p>🚨<strong>THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE
-STEPBYSTAT COMMUNITY.</strong></p>
+<div id="bus-routing-optimization" class="section level2">
+<h2><strong>Bus Routing Optimization </strong></h2>
+<p><br></p>
 <p><br><br><br></p>
-<div id="figure" class="section level3">
-<h3>1. Figure</h3>
+<div id="screenshot-of-dashboard" class="section level3">
+<h3>1. Screenshot of Dashboard</h3>
 <p align="center">
-<img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+<img src="images/bus_routing_optimization.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
 </p>
 <p align="center">
-[Fig. LASSO regression features by importance]
 </p>
-<p><br></p>
-<p><br><br></p>
+<p><br><br><br></p>
 </div>
-<div id="goal" class="section level3">
-<h3>2. Goal</h3>
-<p>To predict the risk level of credit scores, we used customer profile
-information along with credit records. <br></p>
+<div id="summary" class="section level3">
+<h3>2. Summary</h3>
+<p><br><br><br></p>
 </div>
-<div id="methodology-summary" class="section level3">
-<h3>3. Methodology &amp; Summary</h3>
-<ul>
-<li>LASSO regressions showed the best performance with a cross
-validation RMSE-score of 0.1121. Although there is a lot of
-multicollinearity among the variables, LASSO regression include feature
-selection; it does not select a substantial number of the available
-variables in its model, as it is supposed to do.</li>
-<li>The XGBoost model also performs very well with a cross validation
-RMSE of 0.1162.</li>
-<li>As those two algorithms are very different, averaging predictions is
-likely to improve the predictions. As the Lasso cross validated RMSE is
-better than XGBoost’s CV score, I decided to weight the Lasso results
-double.</li>
-</ul>
-<p><br></p>
+<div id="presentation" class="section level3">
+<h3>3. Presentation</h3>
+<p>For more insights, please check my Presentation slide by clicking <a
+href="files/Bus%20Routing%20Optimization%20Helps%20Boston%20Public%20Schools%20Design%20Better%20Policies.pdf">HERE</a>.</p>
+<p><br><br><br></p>
 </div>
-<div id="code" class="section level3">
-<h3>4. Code</h3>
-<p>Please click <a
-href="files/Predicting%20Risky%20Credit%20Card%20Applicants.pdf">HERE</a>
-for the analysis report and <a
-href="files/Predicting%20Risky%20Credit%20Card%20Applicants.ipynb">HERE</a>
-for the code.</p>
-<p><br></p>
+<div id="references" class="section level3">
+<h3>4. References</h3>
+<p>Bertsimas, Dimitris, et al. “Bus Routing Optimization Helps Boston
+Public Schools Design Better Policies.” INFORMS Journal on Applied
+Analytics, vol. 50, no. 1, 2020, pp. 37–49., <a
+href="https://doi.org/10.1287/inte.2019.1015"
+class="uri">https://doi.org/10.1287/inte.2019.1015</a>.</p>
+<p>Yan, Yadan, et al. “Robust Optimization Model of Schedule Design for
+a Fixed Bus Route.” Transportation Research Part C: Emerging
+Technologies, vol. 25, 2012, pp. 113– 121., <a
+href="https://doi.org/10.1016/j.trc.2012.05.006"
+class="uri">https://doi.org/10.1016/j.trc.2012.05.006</a>.</p>
 </div>
 </div>
 
