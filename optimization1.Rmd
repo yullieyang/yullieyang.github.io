@@ -34,7 +34,9 @@ output:
 
 ### 2. Summary
 
-
++ Using Pareto Frontier on several optimized routing scenarios
++ Network Flow with integer optimization to figure out the minimum number of buses for each district
++ Optimize the number of buses in both morning and afternoon
 <br><br><br>
 
 ### 3. Presentation
