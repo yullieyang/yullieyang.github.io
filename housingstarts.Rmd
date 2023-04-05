@@ -62,6 +62,7 @@ editor_options:
 Please click [HERE](files/avg_housing_starts.ipynb) for the project file.
 
 <br>
+
 ### 5. References
 
 
