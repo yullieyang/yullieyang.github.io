@@ -13,7 +13,7 @@
 
 <title>Stat1</title>
 
-<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -340,6 +340,9 @@ div.tocify {
     <li>
       <a href="stat1.html">Predicting Risky Credit Card Applicants </a>
     </li>
+    <li>
+      <a href="optimization1.html">Bus Routing Optimization </a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -351,18 +354,6 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="dbsql1.html">E-bay Transaction Analysis</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Optimization
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="optimization1.html">Bus Routing Optimization </a>
     </li>
   </ul>
 </li>
@@ -422,22 +413,20 @@ div.tocify {
 <p><br><br><br></p>
 <div id="predicting-risky-credit-card-applicants"
 class="section level2">
-<h2><strong>Predicting Risky Credit Card Applicants </strong></h2>
+<h2><strong>Predicting Risky Credit Card Applicants</strong></h2>
 <p><img src="https://img.shields.io/badge/-Python-blue" /> <img
 src="https://img.shields.io/badge/-EDA-9CF" /> <img
 src="https://img.shields.io/badge/-Logistic%20Regression-ff69b4" /> <img
 src="https://img.shields.io/badge/-Random%20Forest-brightgreen" /> <img
 src="https://img.shields.io/badge/-Decision%20Tree-success" /> <br></p>
-<p>🚨<strong>THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE
-STEPBYSTAT COMMUNITY.</strong></p>
 <p><br><br><br></p>
 <div id="figure" class="section level3">
 <h3>1. Figure</h3>
 <p align="center">
-<img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+<p><img src="images/stat2.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/></p>
 </p>
 <p align="center">
-[Fig. LASSO regression features by importance]
+<p>[Fig. LASSO regression features by importance]</p>
 </p>
 <p><br></p>
 <p><br><br></p>
@@ -449,20 +438,17 @@ information along with credit records. <br></p>
 </div>
 <div id="methodology-summary" class="section level3">
 <h3>3. Methodology &amp; Summary</h3>
-<ul>
-<li>LASSO regressions showed the best performance with a cross
-validation RMSE-score of 0.1121. Although there is a lot of
-multicollinearity among the variables, LASSO regression include feature
-selection; it does not select a substantial number of the available
-variables in its model, as it is supposed to do.</li>
-<li>The XGBoost model also performs very well with a cross validation
-RMSE of 0.1162.</li>
-<li>As those two algorithms are very different, averaging predictions is
-likely to improve the predictions. As the Lasso cross validated RMSE is
-better than XGBoost’s CV score, I decided to weight the Lasso results
-double.</li>
-</ul>
-<p><br></p>
+<pre><code>+In this project, the Machine Learning techniques employed, namely Logistic Regression, Random Forest,      and Decision Trees, were found to be suboptimal in addressing the challenge of identifying risky         customers.
+
++Deep learning models were utilized to address the limitations of
+machine learning models. +The basic deep learning model consisted of a
+3-layer binary deep neural network with 20 nodes in each hidden layer.
+
++The Relu function was used as the activation function in the hidden
+layers, while the sigmoid function was employed in the output layer.
+
++Binary cross-entropy was used as the loss function, and stochastic
+gradient descent was employed as the optimizer for the model. &lt;br&gt;</code></pre>
 </div>
 <div id="code" class="section level3">
 <h3>4. Code</h3>
@@ -471,7 +457,16 @@ href="files/Predicting%20Risky%20Credit%20Card%20Applicants.pdf">HERE</a>
 for the analysis report and <a
 href="https://nbviewer.org/github/yullieyang/yullieyang.github.io/blob/main/files/Predicting%20Risky%20Credit%20Card%20Applicants.ipynb">HERE</a>
 for the code.</p>
-<p><br></p>
+<p><br> ### 5. References</p>
+<pre><code>+https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-        data?hl=en
+
++https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classif        ication-problem/
+
++https://machinelearningmastery.com/undersampling-algorithms-for-imbalanced-classification/
+
++http://glemaitre.github.io/imbalanced-learn/generated/imblearn.under_sampling.OneSidedSelection.html
+
++https://machinelearningmastery.com/bagging-and-random-forest-for-imbalanced-classification/</code></pre>
 </div>
 </div>
 
