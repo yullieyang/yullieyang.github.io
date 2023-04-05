@@ -13,14 +13,13 @@ navbar:
       menu: 
       - text: "Predicting Risky Credit Card Applicants "
         href: stat1.html
+      menu:
+      - text: "Bus Routing Optimization "
+        href: optimization1.html
     - text: "DB/SQL"
       menu: 
       - text: "E-bay Transaction Analysis"
         href: dbsql1.html
-    - text: "Optimization"
-      menu:
-      - text: "Bus Routing Optimization "
-        href: optimization1.html
     - text: "Visualization"
       menu: 
       - text: "Squid Game Elimination Analysis"
