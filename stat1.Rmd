@@ -52,14 +52,16 @@ information along with credit records. <br>
 
 ### 3. Methodology & Summary
 
-+In this project, the Machine Learning techniques employed, namely Logistic Regression, Random Forest,  and Decision Trees, were found to be suboptimal in addressing the challenge of identifying risky         customers.
++ Logistic Regression, Random Forest,and Decision Trees were found to be suboptimal 
 
-+Deep learning models were utilized to address the limitations of machine learning models. +The basic deep learning model consisted of a 3-layer binary deep neural network with 20 nodes in each hidden layer.
++ Deep learning models were utilized to address the limitations of machine learning models. 
+
++ The basic deep learning model consisted of a 3-layer binary deep neural network with 20 nodes.
     
-+The Relu function was used as the activation function in the hidden
-layers, while the sigmoid function was employed in the output layer.
-    
-+Binary cross-entropy was used as the loss function, and stochastic gradient descent was employed as the optimizer for the model. <br>
++ The Relu function was used as the activation function in the hidden layers. 
+
++ Binary cross-entropy was used as the loss function. 
+<br>
 
 ### 4. Code
 
@@ -74,12 +76,12 @@ for the code.
 ### 5. References
 
 
-    +https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-        data?hl=en
+https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-        data?hl=en
     
-    +https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classif        ication-problem/
+https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classif        ication-problem/
     
-    +https://machinelearningmastery.com/undersampling-algorithms-for-imbalanced-classification/
+https://machinelearningmastery.com/undersampling-algorithms-for-imbalanced-classification/
     
-    +http://glemaitre.github.io/imbalanced-learn/generated/imblearn.under_sampling.OneSidedSelection.html
+http://glemaitre.github.io/imbalanced-learn/generated/imblearn.under_sampling.OneSidedSelection.html
     
-    +https://machinelearningmastery.com/bagging-and-random-forest-for-imbalanced-classification/
+https://machinelearningmastery.com/bagging-and-random-forest-for-imbalanced-classification/

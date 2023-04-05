@@ -435,23 +435,28 @@ src="https://img.shields.io/badge/-Linear%20Regression-brightgreen" />
 </div>
 <div id="goal" class="section level3">
 <h3>2. Goal</h3>
-<pre><code>Create a model to predict the average housing starts within 1, 2, and 4 quarters by using machine    learning methods. &lt;br&gt;</code></pre>
+<p>Create a model to predict the average housing starts within 1, 2, and
+4 quarters by using machine learning methods.</p>
+<p><br></p>
 </div>
 <div id="methodology-summary" class="section level3">
 <h3>3. Methodology &amp; Summary</h3>
-<p>+The researchers collected data from the Federal Reserve Economic
+<ul>
+<li><p>The researchers collected data from the Federal Reserve Economic
 Data (FRED) online database, which included two crucial data sets: GDP
 and recession dates, in quarterly format extending only to the 1970s.
 All other data was also aggregated to the quarter level, and dates prior
-to the 1970s were dropped.</p>
-<p>+To account for the fact that a recession is a function of what
+to the 1970s were dropped.</p></li>
+<li><p>To account for the fact that a recession is a function of what
 happened in the quarters prior, the r esearchers shifted the target
 column indicating 1 for a recession and 0 for not a recession. This was
 done so that the rest of the data would point ahead to whether or not
-there was a recession.</p>
-<p>+The researchers created three different X matrices for each shift
+there was a recession.</p></li>
+<li><p>The researchers created three different X matrices for each shift
 with 1, 2, and 4 quarters, and the data was split into training and
-testing sets and normalized. <br></p>
+testing sets and normalized.</p></li>
+</ul>
+<p><br></p>
 </div>
 <div id="code" class="section level3">
 <h3>4. Code</h3>
@@ -461,13 +466,17 @@ the project file.</p>
 </div>
 <div id="references" class="section level3">
 <h3>5. References</h3>
-<pre><code>+https://github.com/lorijta92/machine-learning-predicting-recessions
-
-+https://www.investopedia.com/terms/h/housingstarts.asp
-
-+https://towardsdatascience.com/4-libraries-that-can-perform-eda-in-one-line-of-python-code-b13938a06ae
-
-+https://conferences.oreilly.com/strata/strata-ny-2019/cdn.oreillystatic.com/en/assets/1/event/300/Han dling%20data%20gaps%20in%20time%20series%20using%20imputation%20Presentation.pdf</code></pre>
+<p><a
+href="https://github.com/lorijta92/machine-learning-predicting-recessions"
+class="uri">https://github.com/lorijta92/machine-learning-predicting-recessions</a></p>
+<p><a href="https://www.investopedia.com/terms/h/housingstarts.asp"
+class="uri">https://www.investopedia.com/terms/h/housingstarts.asp</a></p>
+<p><a
+href="https://towardsdatascience.com/4-libraries-that-can-perform-eda-in-one-line-of-python-code-b13938a06ae"
+class="uri">https://towardsdatascience.com/4-libraries-that-can-perform-eda-in-one-line-of-python-code-b13938a06ae</a></p>
+<p><a
+href="https://conferences.oreilly.com/strata/strata-ny-2019/cdn.oreillystatic.com/en/assets/1/event/300/Handling%20data%20gaps%20in%20time%20series%20using%20imputation%20Presentation.pdf"
+class="uri">https://conferences.oreilly.com/strata/strata-ny-2019/cdn.oreillystatic.com/en/assets/1/event/300/Handling%20data%20gaps%20in%20time%20series%20using%20imputation%20Presentation.pdf</a></p>
 </div>
 </div>
 
