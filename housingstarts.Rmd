@@ -50,11 +50,11 @@ editor_options:
 
 ### 3. Methodology & Summary
 
-    +The researchers collected data from the Federal Reserve Economic Data (FRED) online database, which      included two crucial data sets: GDP and recession dates, in quarterly format extending only to the        1970s. All other data was also aggregated to the quarter level, and dates prior to the 1970s were         dropped.
++The researchers collected data from the Federal Reserve Economic Data (FRED) online database, which      included two crucial data sets: GDP and recession dates, in quarterly format extending only to the        1970s. All other data was also aggregated to the quarter level, and dates prior to the 1970s were         dropped.
 
-    +To account for the fact that a recession is a function of what happened in the quarters prior, the r     esearchers shifted the target column indicating 1 for a recession and 0 for not a recession. This was     done so that the rest of the data would point ahead to whether or not there was a recession.
++To account for the fact that a recession is a function of what happened in the quarters prior, the r     esearchers shifted the target column indicating 1 for a recession and 0 for not a recession. This was     done so that the rest of the data would point ahead to whether or not there was a recession.
     
-    +The researchers created three different X matrices for each shift with 1, 2, and 4 quarters, and the   data was split into training and testing sets and normalized.
++The researchers created three different X matrices for each shift with 1, 2, and 4 quarters, and the   data was split into training and testing sets and normalized.
      <br>
 
 ### 4. Code

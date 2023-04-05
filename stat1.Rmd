@@ -52,17 +52,14 @@ information along with credit records. <br>
 
 ### 3. Methodology & Summary
 
-    +In this project, the Machine Learning techniques employed, namely Logistic Regression, Random Forest,      and Decision Trees, were found to be suboptimal in addressing the challenge of identifying risky         customers.
++In this project, the Machine Learning techniques employed, namely Logistic Regression, Random Forest,  and Decision Trees, were found to be suboptimal in addressing the challenge of identifying risky         customers.
 
-    +Deep learning models were utilized to address the limitations of
-    machine learning models. +The basic deep learning model consisted of a
-    3-layer binary deep neural network with 20 nodes in each hidden layer.
++Deep learning models were utilized to address the limitations of machine learning models. +The basic deep learning model consisted of a 3-layer binary deep neural network with 20 nodes in each hidden layer.
     
-    +The Relu function was used as the activation function in the hidden
-    layers, while the sigmoid function was employed in the output layer.
++The Relu function was used as the activation function in the hidden
+layers, while the sigmoid function was employed in the output layer.
     
-    +Binary cross-entropy was used as the loss function, and stochastic
-    gradient descent was employed as the optimizer for the model. <br>
++Binary cross-entropy was used as the loss function, and stochastic gradient descent was employed as the optimizer for the model. <br>
 
 ### 4. Code
 
