@@ -7,6 +7,9 @@ output:
     toc_float:
      collapsed: false
      smooth_scroll: false
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 <link rel="stylesheet" href="styles.css" type="text/css">
@@ -14,50 +17,71 @@ output:
 
 <br><br><br>
 
-## **Predicting Risky Credit Card Applicants **
+## **Predicting Risky Credit Card Applicants** 
 
 ![](https://img.shields.io/badge/-Python-blue)
 ![](https://img.shields.io/badge/-EDA-9CF)
 ![](https://img.shields.io/badge/-Logistic%20Regression-ff69b4)
 ![](https://img.shields.io/badge/-Random%20Forest-brightgreen)
-![](https://img.shields.io/badge/-Decision%20Tree-success)
-<br>
-
-🚨**THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.**
+![](https://img.shields.io/badge/-Decision%20Tree-success) <br>
 
 <br><br><br>
 
 ### 1. Figure
 
 <p align="center">
-<img src="images/stat2.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
-</p>
-<p align="center">
-[Fig. LASSO regression features by importance]
+
+<img src="images/stat2.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/>
+
 </p>
 
+<p align="center">
+
+[Fig. LASSO regression features by importance]
+
+</p>
 
 <br>
 
 <br><br>
 
 ### 2. Goal
-To predict the risk level of credit scores, we used customer profile information along with credit records.
-<br>
+
+To predict the risk level of credit scores, we used customer profile
+information along with credit records. <br>
 
 ### 3. Methodology & Summary
 
-    +In this project, the Machine Learning techniques employed, namely Logistic Regression, Random Forest, and Decision Trees, were found to be suboptimal in addressing the challenge of identifying risky customers.
-  +Deep learning models were utilized to address the limitations of machine learning models. 
-  +The basic deep learning model consisted of a 3-layer binary deep neural network with 20 nodes in each hidden layer. 
-  +The Relu function was used as the activation function in the hidden layers, while the sigmoid function was employed in the output layer. 
-  +Binary cross-entropy was used as the loss function, and stochastic gradient descent was employed as the optimizer for the model.
-<br>
+    +In this project, the Machine Learning techniques employed, namely Logistic Regression, Random Forest,      and Decision Trees, were found to be suboptimal in addressing the challenge of identifying risky         customers.
+
+    +Deep learning models were utilized to address the limitations of
+    machine learning models. +The basic deep learning model consisted of a
+    3-layer binary deep neural network with 20 nodes in each hidden layer.
+    
+    +The Relu function was used as the activation function in the hidden
+    layers, while the sigmoid function was employed in the output layer.
+    
+    +Binary cross-entropy was used as the loss function, and stochastic
+    gradient descent was employed as the optimizer for the model. <br>
 
 ### 4. Code
 
-Please click [HERE](files/Predicting Risky Credit Card Applicants.pdf) for the analysis report and [HERE](https://nbviewer.org/github/yullieyang/yullieyang.github.io/blob/main/files/Predicting%20Risky%20Credit%20Card%20Applicants.ipynb) for the code.
+Please click
+[HERE](files/Predicting%20Risky%20Credit%20Card%20Applicants.pdf) for
+the analysis report and
+[HERE](https://nbviewer.org/github/yullieyang/yullieyang.github.io/blob/main/files/Predicting%20Risky%20Credit%20Card%20Applicants.ipynb)
+for the code.
 
 <br>
+### 5. References
 
 
+    +https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-        data?hl=en
+    
+    +https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classif        ication-problem/
+    
+    +https://machinelearningmastery.com/undersampling-algorithms-for-imbalanced-classification/
+    
+    +http://glemaitre.github.io/imbalanced-learn/generated/imblearn.under_sampling.OneSidedSelection.html
+    
+    +https://machinelearningmastery.com/bagging-and-random-forest-for-imbalanced-classification/
