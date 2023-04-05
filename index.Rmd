@@ -13,13 +13,13 @@ output: html_document
 </p>
 <br>
 
-🚨*THIS IS A FICTIONAL PROFILE MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.* 
+
 <br><br><br>
 👋🏽 Hello, my name is Yullie Yang.
 
 🎓 Soon to be grad with a M.S. in Business Analytics at University of Maryland, College Park. (December 2023)
 
-🌇 New York City Native, with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
+🌇 Located in Washington, D.C., with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
 
 📚 **Talk about your past experience, your present experience, and what you did (about 4-5 sentences)**
 
@@ -38,8 +38,8 @@ e.g. 🏔In my free time, you can find me rock climbing.
 e.g. 💪 Specialties in analyzing customer-driven data from e-commerce and applying insights to actionable strategies
 
 + Programming: Python, R
-+ Data visualization: Tableau Software, Power BI
++ Data visualization: Tableau Software
 + Database: SQL, Postgre SQL, MongoDB, Neo4j
-+ Cloud Computing: AWS, GCP (BigQuery), Azure
++ Cloud Computing: AWS
 
 For more details, resume is available [here](files/YullieYangResume.pdf).
