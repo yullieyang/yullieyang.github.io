@@ -19,7 +19,7 @@ navbar:
         href: housingstarts.html
     - text: "DB/SQL"
       menu: 
-      - text: "E-bay Transaction Analysis"
+      - text: "e-bay Transaction Analysis"
         href: dbsql1.html
     - text: "Visualization"
       menu: 
