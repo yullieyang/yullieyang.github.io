@@ -19,22 +19,15 @@ output: html_document
 
 🎓 Soon to be grad with a M.S. in Business Analytics at University of Maryland, College Park. (December 2023)
 
-🏛️ Located in Washington, D.C., with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
 
-
-👧🏻 Born in Arlington, VA, grew up in South Korea, and studied undergraduate in Japan.
+👧🏻 Born in Arlington, VA, grew up in South Korea, and studied undergrad in Japan.
 
 
 🏛 Graduate Summer Intern (2023) at Board of Governors of the Federal Reserve System.
 
 
-💻 Completed Artificial Intelligence Bootcamp (7 months duration) sponsored by South Korean Government.
+💡 As for my future, I hope to one day work as a data analyst/scientist/engineer role, applying insights to actionable strategies.
 
-💡 As for my future, I hope to one day work as a data analyst/scientist/engineer role.
-
-🏔In my free time, you can find me hiking.
-
-🔋 Specialties in analyzing customer-driven data from e-commerce and applying insights to actionable strategies.
 
 + Programming: Python, R
 + Data visualization: Tableau Software
