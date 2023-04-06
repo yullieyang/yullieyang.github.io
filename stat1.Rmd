@@ -76,9 +76,9 @@ for the code.
 ### 5. References
 
 
-https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-        data?hl=en
+https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-data?hl=en
     
-https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classif        ication-problem/
+https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classification-problem/
     
 https://machinelearningmastery.com/undersampling-algorithms-for-imbalanced-classification/
     

@@ -72,9 +72,6 @@ Please click [HERE](files/avg_housing_starts.ipynb) for the project file.
 https://github.com/lorijta92/machine-learning-predicting-recessions
     
 https://www.investopedia.com/terms/h/housingstarts.asp
-    
-https://towardsdatascience.com/4-libraries-that-can-perform-eda-in-one-line-of-python-code-b13938a06ae
 
-https://conferences.oreilly.com/strata/strata-ny-2019/cdn.oreillystatic.com/en/assets/1/event/300/Handling%20data%20gaps%20in%20time%20series%20using%20imputation%20Presentation.pdf
     
  
