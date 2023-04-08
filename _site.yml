@@ -7,8 +7,6 @@ output_dir: "."
 navbar:
   title: "Yullie Yang"
   left:
-    - text: "Tutorials"
-      href: tutorials.html
     - text: "Stat/ML"
       menu: 
       - text: "Predicting Risky Credit Card Applicants "
