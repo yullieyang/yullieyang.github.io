@@ -23,6 +23,8 @@ navbar:
       menu: 
       - text: "University of Maryland Basketball Game Analysis"
         href: visualization1.html
+      - text: "Lending Club"
+        href: visualization2.html
     - text: "Computer Simulation"
       menu: 
       - text: "Arena"
