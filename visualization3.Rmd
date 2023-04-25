@@ -1,0 +1,57 @@
+---
+pagetitle: "Data Visualization"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+     collapsed: false
+     smooth_scroll: false
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css"> <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+<br><br><br>
+
+## **Lending Club**
+
+![](https://img.shields.io/badge/Using-Tableau%20Software-red)
+
+<br>
+
+<br><br><br>
+
+### 1. Screenshot of Dashboard
+
+<p align="center">
+
+<img src="images/Dashboard 3.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/>
+
+</p>
+
+<p align="center">
+
+</p>
+
+<br><br><br>
+
+### 2. Summary
+
+- The world bank data with the internet use and the covid vaccination data.
+- Internet use in Afghanistan has  increased in recent 10 years. 
+- Among the Asian countries, however, Afghanistan shows lowest ratio of average internet use in the year 2020.
+-Among the middle East countries, Afghanistan had quite low ratio of delivery efficiency of the secured covid 19 vaccine. 
+<br><br><br>
+
+### 3. Tableau Visualization
+
+For more insights, please check my Tableau Visualization by clicking [HERE](files/Visualization_3.pdf).
+
+<br><br><br>
+
+### 4. Data Source
+
+World Bank (https://data.worldbank.org/; https://microdata.worldbank.org) 
+
+Covid: https://data.covid19taskforce.com/data
+

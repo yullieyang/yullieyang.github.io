@@ -25,6 +25,8 @@ navbar:
         href: visualization1.html
       - text: "Lending Club"
         href: visualization2.html
+      - text: "Afghanistan Internet Use & Covid Vaccine"
+        href: visualization3.html
     - text: "Computer Simulation"
       menu: 
       - text: "Arena"

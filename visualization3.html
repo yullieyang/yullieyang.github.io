@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Yullie Yang" />
 
 
-<title>contact.knit</title>
+<title>Data Visualization</title>
 
 <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -223,6 +225,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -230,6 +301,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -347,17 +428,48 @@ $(document).ready(function () {
 
 <p><link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/></p>
-<p><br><br><br><br><br><br></p>
-<div id="yullie-yang" class="section level4">
-<h4><strong>Yullie Yang</strong></h4>
-<div
-id="m.s.-candidate-in-business-analytics-university-of-maryland-college-park"
-class="section level5">
-<h5>M.S. Candidate in Business Analytics | University of Maryland,
-College Park
-<img src="images/college_logo.png" style="width:35%;" align="right"></h5>
-<p>📍 Washington, D.C. <br> 📱 (240) 620 - 4718 <br> ✉️ <a
-href="mailto:yullieyang@gmail.com">yullieyang@gmail.com</a> <br></p>
+<p><br><br><br></p>
+<div id="lending-club" class="section level2">
+<h2><strong>Lending Club</strong></h2>
+<p><img
+src="https://img.shields.io/badge/Using-Tableau%20Software-red" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="screenshot-of-dashboard" class="section level3">
+<h3>1. Screenshot of Dashboard</h3>
+<p align="center">
+<p><img src="images/Dashboard%203.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/></p>
+</p>
+<p align="center">
+</p>
+<p><br><br><br></p>
+</div>
+<div id="summary" class="section level3">
+<h3>2. Summary</h3>
+<ul>
+<li>The world bank data with the internet use and the covid vaccination
+data.</li>
+<li>Internet use in Afghanistan has increased in recent 10 years.</li>
+<li>Among the Asian countries, however, Afghanistan shows lowest ratio
+of average internet use in the year 2020. -Among the middle East
+countries, Afghanistan had quite low ratio of delivery efficiency of the
+secured covid 19 vaccine. <br><br><br></li>
+</ul>
+</div>
+<div id="tableau-visualization" class="section level3">
+<h3>3. Tableau Visualization</h3>
+<p>For more insights, please check my Tableau Visualization by clicking
+<a href="files/Visualization_3.pdf">HERE</a>.</p>
+<p><br><br><br></p>
+</div>
+<div id="data-source" class="section level3">
+<h3>4. Data Source</h3>
+<p>World Bank (<a href="https://data.worldbank.org/"
+class="uri">https://data.worldbank.org/</a>; <a
+href="https://microdata.worldbank.org"
+class="uri">https://microdata.worldbank.org</a>)</p>
+<p>Covid: <a href="https://data.covid19taskforce.com/data"
+class="uri">https://data.covid19taskforce.com/data</a></p>
 </div>
 </div>
 
@@ -368,6 +480,8 @@ href="mailto:yullieyang@gmail.com">yullieyang@gmail.com</a> <br></p>
 </footer>
 
 
+</div>
+</div>
 
 </div>
 
@@ -400,6 +514,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
