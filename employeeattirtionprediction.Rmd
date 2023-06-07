@@ -1,0 +1,82 @@
+---
+pagetitle: "Employee Attrition and Resignation Prediction for Healthcare"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+     collapsed: false
+     smooth_scroll: false
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+<br><br><br>
+
+## **Employee Attrition and Resignation Prediction for Healthcares** 
+
+![](https://img.shields.io/badge/-Python-blue)
+![](https://img.shields.io/badge/-EDA-9CF)
+![](https://img.shields.io/badge/-Logistic%20Regression-ff69b4)
+![](https://img.shields.io/badge/-Random%20Forest-brightgreen)
+![](https://img.shields.io/badge/-Decision%20Tree-success) <br>
+
+<br><br><br>
+
+### 1. Figure
+
+<p align="center">
+
+<img src="images/employeeattrition.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/>
+<img src="images/employeeattritionconclusion.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/>
+</p>
+
+
+<br>
+
+<br><br>
+
+### 2. Goal
+
+How to better understand the demand in the Healthcare job market.
+
+To implement new plans to reduce turnover rates.
+<br>
+
+### 3. Methodology & Summary
+
+
++ KNN, Naive Bayes, Decision Tree and Random Forest models were used. 
+
++ Logistic Regression, KNN,and Decision Trees were found to be suboptimal.
+
++ Overtime: Working Overtime is the biggest factor that helps predicting Attrition
+
++ Age: Younger employees are more likely to quit their current job
+
++ Studying and understanding the difference of younger employees from other age group
+
+<br>
+
+### 4. Code
+
+Please click
+[HERE](files/employeeattritionreport.pdf) for report.
+
+<br>
+
+### 5. References
+
+
+Kaggle dataset: https://www.kaggle.com/datasets/jpmiller/employee-attrition-for-healthcare?resource=download
+“2023 NSI National Health Care Retention & RN Staffing Report.” NSI_National_Health_Care_Retention_Report.,
+
+https://www.nsinursingsolutions.com/Documents/Library/NSI_National_Health_Care_Retention_Report.pdf. 
+
+Lecture Slides:
+Prasad Kislaya, Naive Bayes, Performance Measures ,Tree-Based Models in R, ClassificationFirst Look, K Nearest Neighbor (Revised) 
+

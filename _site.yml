@@ -9,6 +9,8 @@ navbar:
   left:
     - text: "Stat/ML"
       menu: 
+      - text: "Employee Attrition and Resignation Prediction for Healthcare "
+        href: employeeattirtionprediction.html      
       - text: "Predicting Risky Credit Card Applicants "
         href: stat1.html
       - text: "Bus Routing Optimization "
