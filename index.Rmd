@@ -20,7 +20,7 @@ output: html_document
 🎓 Soon to be grad with a M.S. in Business Analytics at University of Maryland, College Park. (December 2023)
 
 
-👧🏻 Born in Arlington, VA, grew up in South Korea, and studied undergrad in Japan.
+👧🏻 Born in Arlington, VA, grew up in South Korea, and studied undergrad in Japan (Waseda University, 22').
 
 
 🏛 Graduate Summer Intern (2023) at Board of Governors of the Federal Reserve System.
