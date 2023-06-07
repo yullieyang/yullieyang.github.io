@@ -29,7 +29,7 @@ output: html_document
 💡 As for my future, I hope to one day work as a data analyst/scientist/engineer role, applying insights to actionable strategies.
 
 
-+ Programming: Python, R
++ Programming: Python, R 
 + Data visualization: Tableau Software
 + Database: SQL, Postgre SQL
 + Cloud Computing: AWS

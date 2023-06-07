@@ -13,7 +13,7 @@ output:
 
 <br><br><br>
 
-## **Lending Club**
+## **Afghanistan Analysis**
 
 ![](https://img.shields.io/badge/Using-Tableau%20Software-red)
 
