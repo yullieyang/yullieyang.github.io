@@ -13,7 +13,7 @@ output: html_document
 <br><br><br><br><br><br>
 
 #### **Yullie Yang**
-##### M.S. Candidate in Business Analytics | University of Maryland, College Park <img src="images/college_logo.png" style="width:35%;" align="right">
+##### M.S. in Business Analytics | University of Maryland, College Park <img src="images/college_logo.png" style="width:35%;" align="right">
 
 📍 Washington, D.C. <br>
 📱 (240) 620 - 4718 <br>

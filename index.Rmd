@@ -17,21 +17,26 @@ output: html_document
 <br><br><br>
 👋🏽 Hello, my name is Yullie Yang.
 
-🎓 Soon to be grad with a M.S. in Business Analytics at University of Maryland, College Park. (December 2023)
+🎓 M.S. in Business Analytics, University of Maryland, College Park (December 2023).
 
+👧🏻 Born in Arlington, VA, raised in South Korea, undergrad at Waseda University in Japan (2022).
 
-👧🏻 Born in Arlington, VA, grew up in South Korea, and studied undergrad in Japan (Waseda University, 22').
+🏛 Graduate Summer Intern (2023) at the Board of Governors of the Federal Reserve System.
 
+💡 I work at the intersection of **economics, data, and engineering** — building reproducible pipelines and forecasting models that turn macro and financial data into decision-ready output.
 
-🏛 Graduate Summer Intern (2023) at Board of Governors of the Federal Reserve System.
+### Featured projects
 
++ **[r-macro-trade-commodity-forecast](https://github.com/yullieyang/r-macro-trade-commodity-forecast)** — reproducible R pipeline pulling FRED macro / trade / commodity data into a quarterly panel, with derived measures and ARIMA forecasts (with prediction intervals).
++ **[cre_stress_test](https://github.com/yullieyang/cre_stress_test)** — supervisory-style commercial real estate stress test pipeline, with mobility- and unemployment-driven scenarios.
++ **[Predicting Average Housing Starts](housingstarts.html)** — FRED quarterly data + linear regression for 1/2/4-quarter forecasting.
++ **[Employee Attrition Prediction](employeeattirtionprediction.html)** — classification model with imbalanced-class handling.
 
-💡 As for my future, I hope to one day work as a data analyst/scientist/engineer role, applying insights to actionable strategies.
+### Toolbox
 
++ **Languages:** R (primary), Python, SQL, Matlab
++ **Data:** FRED, PostgreSQL, AWS, Tableau
++ **Engineering:** Git / GitLab, RMarkdown, reproducible pipelines, ARIMA / time-series modeling
++ **AI / LLM workflows:** Claude API, Claude Code for research and content automation
 
-+ Programming: Python, R 
-+ Data visualization: Tableau Software
-+ Database: SQL, Postgre SQL
-+ Cloud Computing: AWS
-
-For more details, resume is available [here](files/YullieYangResume.pdf).
+For more details, my resume is available [here](files/YullieYangResume.pdf).
