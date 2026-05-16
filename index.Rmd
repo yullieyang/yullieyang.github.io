@@ -15,28 +15,30 @@ output: html_document
 
 
 <br><br><br>
-👋🏽 Hello, my name is Yullie Yang.
+👋🏽 Hello, I'm **Yullie Yang** — a quantitative analyst working at the intersection of **economics, data, and engineering**.
 
-🎓 M.S. in Business Analytics, University of Maryland, College Park (December 2023).
+📍 Currently in Boston, MA as a **Quantitative Analyst at CoStar Group**, where I own quarterly credit risk forecasting model releases for commercial real estate portfolios — supporting stress testing, scenario analysis, and model performance review using CMBS and loan-level data.
 
-👧🏻 Born in Arlington, VA, raised in South Korea, undergrad at Waseda University in Japan (2022).
+🛠 Before CoStar, I was a **Data Scientist / Consultant at Guidehouse** (Mar 2024 – Jun 2025), building Python/SQL workflows over multi-source federal financial datasets, developing validation logic for recurring financial and compliance reports, and evaluating Azure-based retrieval workflows for an internal chatbot on financial policy documents.
 
-🏛 Graduate Summer Intern (2023) at the Board of Governors of the Federal Reserve System.
+🏛 In summer 2023 I was a **Graduate Intern with the Federal Reserve Board's Division of International Finance** (Integrated Technology Solutions) — building research-support tools, NLP and prompt-experimentation workflows over economic and regulatory documents, and R-based research visualizations.
 
-💡 I work at the intersection of **economics, data, and engineering** — building reproducible pipelines and forecasting models that turn macro and financial data into decision-ready output.
+🎓 **M.S. in Business Analytics**, University of Maryland, College Park (Dec 2023, 3.7 GPA) · **B.A. in Global Political Economy**, Waseda University, Tokyo (Sept 2022, 3.7 GPA).
+
+💡 I focus on **production-ready research code**: reproducible R / Python pipelines, model validation and QA, stress testing, and forecasting — translating policy-oriented and financial-modeling decisions into versioned, reviewable artifacts.
 
 ### Featured projects
 
-+ **[r-macro-trade-commodity-forecast](https://github.com/yullieyang/r-macro-trade-commodity-forecast)** — reproducible R pipeline pulling FRED macro / trade / commodity data into a quarterly panel, with derived measures and ARIMA forecasts (with prediction intervals).
-+ **[cre_stress_test](https://github.com/yullieyang/cre_stress_test)** — supervisory-style commercial real estate stress test pipeline, with mobility- and unemployment-driven scenarios.
-+ **[Predicting Average Housing Starts](housingstarts.html)** — FRED quarterly data + linear regression for 1/2/4-quarter forecasting.
-+ **[Employee Attrition Prediction](employeeattirtionprediction.html)** — classification model with imbalanced-class handling.
++ **[r-macro-trade-commodity-forecast](https://github.com/yullieyang/r-macro-trade-commodity-forecast)** — modular R pipeline pulling FRED macro / trade / commodity series (exports, imports, net exports, oil, GDP, unemployment, rates) into a quarterly panel, with derived measures and ARIMA 8-quarter forecasts.
++ **[cre_stress_test](https://github.com/yullieyang/cre_stress_test)** — supervisory-style commercial real estate stress test pipeline (FRED macro + mobility + zoning data, ~78% recall, FPR ≤20%, 0.73 AUC).
++ **[Predicting Average Housing Starts](housingstarts.html)** — quarterly FRED data + linear regression for 1 / 2 / 4-quarter forecasting.
++ **[Employee Attrition Prediction](employeeattirtionprediction.html)** — KNN / Naive Bayes / Decision Tree / Random Forest comparison with imbalanced-class handling.
 
 ### Toolbox
 
-+ **Languages:** R (primary), Python, SQL
-+ **Data:** FRED, PostgreSQL, AWS, Tableau
-+ **Engineering:** Git / GitLab, RMarkdown, reproducible pipelines, ARIMA / time-series modeling
-+ **AI / LLM workflows:** Claude API, Claude Code for research and content automation
++ **Languages:** R, Python, SQL
++ **Frameworks & tools:** tidyverse, ggplot2, pandas, scikit-learn, Power BI, Azure, Git
++ **Domain:** financial model validation, stress testing / scenario analysis, forecasting, policy research support
++ **AI / LLM workflows:** Claude API, Claude Code, retrieval-augmented document workflows
 
-For more details, my resume is available [here](files/YullieYangResume.pdf).
+📄 Resume: [download PDF](files/YullieYangResume.pdf)  ·  💼 [LinkedIn](https://linkedin.com/in/yullie-yang)  ·  💻 [GitHub](https://github.com/yullieyang)

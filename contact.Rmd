@@ -13,8 +13,10 @@ output: html_document
 <br><br><br><br><br><br>
 
 #### **Yullie Yang**
-##### M.S. in Business Analytics | University of Maryland, College Park <img src="images/college_logo.png" style="width:35%;" align="right">
+##### Quantitative Analyst, CoStar Group | M.S. Business Analytics, University of Maryland <img src="images/college_logo.png" style="width:35%;" align="right">
 
-📍 Washington, D.C. <br>
+📍 Boston, MA <br>
 📱 (240) 620 - 4718 <br>
 ✉️ [yullieyang@gmail.com](mailto:yullieyang@gmail.com) <br>
+💼 [linkedin.com/in/yullie-yang](https://linkedin.com/in/yullie-yang) <br>
+💻 [github.com/yullieyang](https://github.com/yullieyang) <br>
