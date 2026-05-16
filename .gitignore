@@ -2,3 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# iCloud placeholders
+*.icloud

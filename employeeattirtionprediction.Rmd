@@ -27,27 +27,14 @@ editor_options:
 
 <br><br><br>
 
-### 1. Figure
-
-<p align="center">
-
-<img src="images/employeeattrition.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/>
-<img src="images/employeeattritionconclusion.png" style="width:80%; border:0px solid; margin-right: 20px" align="center"/>
-</p>
-
-
-<br>
-
-<br><br>
-
-### 2. Goal
+### 1. Goal
 
 How to better understand the demand in the Healthcare job market.
 
 To implement new plans to reduce turnover rates.
 <br>
 
-### 3. Methodology & Summary
+### 2. Methodology & Summary
 
 
 + KNN, Naive Bayes, Decision Tree and Random Forest models were used. 
@@ -62,14 +49,14 @@ To implement new plans to reduce turnover rates.
 
 <br>
 
-### 4. Code
+### 3. Code
 
 Please click
 [HERE](files/employeeattritionreport.pdf) for report.
 
 <br>
 
-### 5. References
+### 4. References
 
 
 Kaggle dataset: https://www.kaggle.com/datasets/jpmiller/employee-attrition-for-healthcare?resource=download
