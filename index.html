@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yullie Yang — Quantitative Analyst</title>
+  <meta name="description" content="Yullie Yang — quantitative analyst building reproducible financial / economic research workflows and AI-assisted QA / documentation systems.">
+  <link rel="canonical" href="https://yullieyang.github.io/">
+  <meta property="og:title" content="Yullie Yang — Quantitative Analyst">
+  <meta property="og:description" content="Reproducible R / Python research workflows, stress testing, and AI-assisted QA / documentation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yullieyang.github.io/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #1f3a5f;
+      --navy-dark: #15263f;
+      --accent: #9c1f1f;
+      --ink: #1a1a1a;
+      --muted: #5a5a5a;
+      --rule: #e4e4e7;
+      --bg: #fafafa;
+      --card: #ffffff;
+      --max: 880px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--navy); text-decoration: none; border-bottom: 1px solid rgba(31, 58, 95, 0.25); transition: border-color 0.15s ease; }
+    a:hover { border-bottom-color: var(--navy); }
+    h1, h2, h3 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--navy-dark);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-size: 2.1rem; margin: 0 0 0.25rem; line-height: 1.2; }
+    h2 { font-size: 1.35rem; margin: 2.5rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule); }
+    h3 { font-size: 1.05rem; margin: 0 0 0.35rem; font-weight: 700; }
+    code, .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+    code { background: #f1f1f4; padding: 0.05em 0.35em; border-radius: 3px; color: var(--navy-dark); }
+
+    header {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 1.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--rule);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .role { color: var(--muted); font-size: 1.05rem; margin: 0.25rem 0 0.6rem; }
+    .meta { color: var(--muted); font-size: 0.92rem; }
+    .meta span + span::before { content: " · "; margin: 0 0.15rem; color: var(--rule); }
+
+    main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    .bio p { margin: 0 0 0.85rem; }
+    .bio p:last-child { margin-bottom: 0; }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .project {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1.1rem 1.2rem;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .project:hover { border-color: var(--navy); }
+    .project h3 a { border-bottom: none; color: var(--navy-dark); }
+    .project h3 a:hover { color: var(--navy); }
+    .project p { margin: 0.35rem 0 0; color: var(--ink); font-size: 0.94rem; line-height: 1.55; }
+    .project .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .project .stack {
+      display: block;
+      margin-top: 0.6rem;
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .coursework {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.4rem 1.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .coursework li { font-size: 0.93rem; color: var(--muted); }
+    .coursework li a { color: var(--ink); border-bottom: 1px dotted rgba(31, 58, 95, 0.3); }
+
+    .toolbox { display: grid; grid-template-columns: 160px 1fr; gap: 0.4rem 1.2rem; font-size: 0.94rem; }
+    .toolbox dt { color: var(--navy-dark); font-weight: 600; }
+    .toolbox dd { margin: 0; color: var(--ink); }
+
+    .ai-note {
+      background: #f3f5f9;
+      border-left: 3px solid var(--navy);
+      padding: 0.9rem 1.1rem;
+      border-radius: 3px;
+      font-size: 0.94rem;
+    }
+    .ai-note p { margin: 0; }
+    .ai-note strong { color: var(--navy-dark); }
+
+    .contact { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 0.96rem; }
+    .contact a { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.5rem;
+      justify-content: space-between;
+    }
+    footer a { color: var(--muted); border-bottom-color: transparent; }
+    footer a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+
+    @media (max-width: 600px) {
+      header { grid-template-columns: 1fr; text-align: center; padding-top: 2.5rem; }
+      .avatar { margin: 0 auto; width: 120px; height: 120px; }
+      .toolbox { grid-template-columns: 1fr; gap: 0.2rem; }
+      .toolbox dt { margin-top: 0.6rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img class="avatar" src="images/profile_pic.jpg" alt="Yullie Yang">
+  <div>
+    <h1>Yullie Yang</h1>
+    <p class="role">Quantitative Analyst — financial &amp; economic research workflows, AI-assisted QA / documentation</p>
+    <p class="meta">
+      <span>Boston, MA</span>
+      <span><a href="mailto:yullieyang@gmail.com">yullieyang@gmail.com</a></span>
+      <span><a href="https://github.com/yullieyang">GitHub</a></span>
+      <span><a href="https://linkedin.com/in/yullie-yang">LinkedIn</a></span>
+      <span><a href="files/YullieYangResume.pdf">Resume (PDF)</a></span>
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section class="bio">
+    <h2>About</h2>
+    <p>I work at the intersection of <strong>economics, data, and engineering</strong> — building reproducible R&nbsp;/&nbsp;Python pipelines, validation and QA workflows, and AI-assisted documentation tooling that turn macro and financial data into versioned, reviewable artifacts.</p>
+    <p>My focus is <em>production-style research-support code</em>: pulling series from authoritative sources, harmonizing across frequencies, computing derived measures, producing short-horizon forecasts with documented uncertainty, and using AI coding tools responsibly to make recurring QA, code review, and documentation workflows more systematic — packaged so a reviewer can audit every step from Git.</p>
+  </section>
+
+  <section>
+    <h2>Background</h2>
+    <ul style="list-style: none; padding: 0; margin: 0;">
+      <li style="margin-bottom: 0.4rem;"><strong>Quantitative Analyst</strong>, CoStar Group — Boston, MA (2025&nbsp;–&nbsp;present)</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Data Scientist&nbsp;/&nbsp;Consultant</strong>, Guidehouse — McLean, VA (2024&nbsp;–&nbsp;2025)</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Graduate Intern</strong>, Federal Reserve Board, Division of International Finance — Washington, DC (Summer 2023)</li>
+      <li style="margin-bottom: 0.4rem;"><strong>M.S. Business Analytics</strong>, University of Maryland, College Park (Dec 2023)</li>
+      <li><strong>B.A. Global Political Economy</strong>, Waseda University, Tokyo (2022)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Featured work</h2>
+    <div class="projects">
+
+      <article class="project">
+        <span class="tag">Macro forecasting</span>
+        <h3><a href="https://github.com/yullieyang/r-macro-trade-commodity-forecast">r-macro-trade-commodity-forecast</a></h3>
+        <p>Reproducible R pipeline pulling 13 FRED macro&nbsp;/&nbsp;trade&nbsp;/&nbsp;commodity series into a quarterly panel with implicit trade deflators and terms of trade. 8-quarter <code>auto.arima</code> forecasts for net exports, real GDP, and WTI; distributed-lag exchange-rate pass-through regression on U.S. trade prices. CI + Quarto Pages dashboard.</p>
+        <span class="stack">R · forecast · tidyverse · GitHub Actions · Quarto</span>
+      </article>
+
+      <article class="project">
+        <span class="tag">Stress testing</span>
+        <h3><a href="https://github.com/yullieyang/cre_stress_test">cre_stress_test</a></h3>
+        <p>Portfolio-demo stress-testing workflow on 100% public data (FRED + Google Mobility + Boston Zoning). Python package + R&nbsp;/&nbsp;auto.arima companion + SQLAlchemy persistence + Streamlit dashboard. pytest + CI. Personal project; does not reflect any employer's internal data or models.</p>
+        <span class="stack">Python · scikit-learn · SQLAlchemy · Streamlit · R</span>
+      </article>
+
+      <article class="project">
+        <span class="tag">AI / LLM workflows</span>
+        <h3><a href="https://github.com/yullieyang/llm-research-workflow-assistant">llm-research-workflow-assistant</a></h3>
+        <p>Prompt templates, sample outputs, and a human-in-the-loop checklist for using AI coding tools responsibly in recurring research workflows — data QA, code review, brief review, documentation drafting. CLAUDE.md codifies model behavior.</p>
+        <span class="stack">Markdown · Python · prompt engineering · responsible AI</span>
+      </article>
+
+      <article class="project">
+        <span class="tag">Applied LLM tooling</span>
+        <h3><a href="https://github.com/yullieyang/cardnews">cardnews</a></h3>
+        <p>Claude API + Puppeteer pipeline that renders a topic into a 10-slide 1080×1080 visual deck. Schema-constrained model output, deterministic per-run artifacts, explicit human-review framing.</p>
+        <span class="stack">Node.js · Anthropic SDK · Puppeteer</span>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>How I use AI tools</h2>
+    <div class="ai-note">
+      <p>I treat AI coding tools as collaborators on boilerplate, refactoring, and documentation — <strong>not</strong> as substitutes for analyst judgment. Every repo that uses an LLM in its workflow includes a <code>CLAUDE.md</code> defining how the model should behave, a clear human-review step before outputs are shared, and explicit limitations of what the AI-assisted output represents.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Toolbox</h2>
+    <dl class="toolbox">
+      <dt>Languages</dt>
+      <dd>R (primary), Python, SQL</dd>
+
+      <dt>Data &amp; infra</dt>
+      <dd>FRED, SQLite&nbsp;/&nbsp;PostgreSQL&nbsp;/&nbsp;SQLAlchemy, AWS, Azure, Tableau, Power BI</dd>
+
+      <dt>Engineering</dt>
+      <dd>Git, GitHub Actions, R Markdown&nbsp;/&nbsp;Quarto, Streamlit, <code>make</code>-driven pipelines, pytest, testthat</dd>
+
+      <dt>Modeling</dt>
+      <dd><code>auto.arima</code>, distributed-lag regression, classification under class imbalance, SHAP explainability</dd>
+
+      <dt>AI / LLM</dt>
+      <dd>Claude API, Claude Code, prompt-template design, human-in-the-loop review processes, retrieval-augmented document workflows</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Earlier coursework</h2>
+    <p style="color: var(--muted); font-size: 0.92rem; margin-bottom: 0.6rem;">Graduate-program write-ups, kept as static HTML. The active research-support work lives in the linked GitHub repos above.</p>
+    <ul class="coursework">
+      <li><a href="housingstarts.html">Predicting average housing starts</a></li>
+      <li><a href="employeeattirtionprediction.html">Employee attrition prediction</a></li>
+      <li><a href="visualization1.html">Visualization &mdash; series 1</a></li>
+      <li><a href="visualization2.html">Visualization &mdash; series 2</a></li>
+      <li><a href="visualization3.html">Visualization &mdash; series 3</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p class="contact">
+      <a href="mailto:yullieyang@gmail.com">yullieyang@gmail.com</a>
+      <a href="https://github.com/yullieyang">github.com/yullieyang</a>
+      <a href="https://linkedin.com/in/yullie-yang">linkedin.com/in/yullie-yang</a>
+      <a href="files/YullieYangResume.pdf">Resume (PDF)</a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <span>&copy; <span id="year"></span> Yullie Yang</span>
+  <span><a href="https://github.com/yullieyang/yullieyang.github.io">View source</a></span>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
