@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cumulative exchange-rate pass-through: what the coefficient says and what it doesn't — Yullie Yang</title>
+  <meta name="description" content="A short methodology note on what a distributed-lag pass-through regression actually estimates, and what it cannot.">
+  <link rel="canonical" href="https://yullieyang.github.io/notes/passthrough-what-it-says.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #1f3a5f;
+      --navy-dark: #15263f;
+      --accent: #9c1f1f;
+      --ink: #1a1a1a;
+      --muted: #5a5a5a;
+      --rule: #e4e4e7;
+      --bg: #fafafa;
+      --card: #ffffff;
+      --max: 720px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--navy); text-decoration: none; border-bottom: 1px solid rgba(31, 58, 95, 0.25); transition: border-color 0.15s ease; }
+    a:hover { border-bottom-color: var(--navy); }
+    h1, h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--navy-dark);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-size: 1.9rem; margin: 0 0 0.4rem; line-height: 1.25; }
+    h2 { font-size: 1.2rem; margin: 2.2rem 0 0.8rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--rule); }
+    code, .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+    code { background: #f1f1f4; padding: 0.05em 0.35em; border-radius: 3px; color: var(--navy-dark); }
+    .eq {
+      display: block;
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.95rem;
+      background: #f3f5f9;
+      border-left: 3px solid var(--navy);
+      padding: 0.7rem 1rem;
+      margin: 1rem 0;
+      border-radius: 3px;
+      overflow-x: auto;
+    }
+    nav.top {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    nav.top a { color: var(--muted); border-bottom: none; }
+    nav.top a:hover { color: var(--navy); }
+    header.post {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 0.5rem;
+    }
+    .meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
+    main { max-width: var(--max); margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+    main p { margin: 0 0 1rem; }
+    main p:last-child { margin-bottom: 0; }
+    .callout {
+      background: #f3f5f9;
+      border-left: 3px solid var(--navy);
+      padding: 0.9rem 1.1rem;
+      border-radius: 3px;
+      font-size: 0.95rem;
+      margin: 1.2rem 0;
+    }
+    .callout p { margin: 0; }
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--rule);
+    }
+    footer a { color: var(--muted); border-bottom-color: transparent; }
+    footer a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.55rem; }
+      h2 { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="../index.html">← back to yullieyang.github.io</a>
+</nav>
+
+<header class="post">
+  <h1>Cumulative exchange-rate pass-through: what the coefficient says and what it doesn't</h1>
+  <p class="meta">Methodology note · ~5 minute read</p>
+</header>
+
+<main>
+
+  <p>The flagship repository in my portfolio, <a href="https://github.com/yullieyang/r-macro-trade-commodity-forecast"><code>r-macro-trade-commodity-forecast</code></a>, estimates the cumulative pass-through of the broad U.S. dollar to the implicit U.S. import and export deflators. This note explains what that number means and — equally important — what it doesn't.</p>
+
+  <h2>The question</h2>
+
+  <p>When the dollar appreciates by one percent, how much of that move shows up in the price of U.S. imports (measured in dollars), and how much is absorbed by foreign exporters trimming their mark-ups? That fraction is called <em>exchange-rate pass-through</em>. The standard finding in the empirical trade literature is that short-run pass-through to U.S. import prices is well below one — i.e., a stronger dollar lowers import prices in dollar terms, but not one-for-one. The bulk of the dollar's move is absorbed elsewhere in the supply chain.</p>
+
+  <h2>What the regression actually estimates</h2>
+
+  <p>The pipeline fits a single-equation distributed-lag OLS on quarterly data since 1990:</p>
+
+  <div class="eq">
+    Δlog(P_M)_t = α + Σ<sub>k=0..4</sub> β<sub>k</sub> · Δlog(USD)<sub>t−k</sub> + γ · Δlog(CPI)_t + ε_t
+  </div>
+
+  <p>Where <code>P_M</code> is the implicit U.S. import deflator (nominal imports divided by chained-real imports, times 100), <code>USD</code> is the broad trade-weighted dollar index, and <code>CPI</code> is the headline CPI. The headline statistic is the sum of the FX coefficients — the <em>cumulative pass-through</em>. The latest committed run reports −0.67 over five quarters, with 76 observations.</p>
+
+  <h2>What the coefficient says</h2>
+
+  <p>Read literally: in the quarterly sample since 1990, a one-percent appreciation of the broad dollar is associated with a 0.67-percent decline in the implicit U.S. import deflator over five quarters, after controlling for contemporaneous changes in headline inflation. The negative sign and the &lt;1 magnitude both match the standard prior in the empirical pass-through literature. The point estimate is reported with classical OLS standard errors and a 95% confidence interval in <code>outputs/tables/passthrough_coefficients.csv</code>.</p>
+
+  <h2>What it doesn't say</h2>
+
+  <p>Three things this coefficient is silent on:</p>
+
+  <p><strong>1. It is not a causal estimate.</strong> The regression treats the dollar as exogenous. In practice the dollar co-moves with the same shocks that move U.S. trade prices — global risk-off episodes, monetary-policy surprises, commodity-price shocks. Those common shocks bias simple OLS toward zero. The point estimate is descriptive, not structural.</p>
+
+  <p><strong>2. The standard errors are not heteroscedasticity-robust.</strong> The residual of a log-differenced price series almost certainly has time-varying variance. Reporting classical SEs is fine for a baseline, but inference should use HC-robust standard errors (<code>sandwich::vcovHC()</code>) before a number like &minus;0.67 carries any real weight.</p>
+
+  <p><strong>3. It is a reduced form, not a mechanism.</strong> The number doesn't decompose how much of the absorption comes from exporter mark-up adjustment, supply-chain hedging, or invoicing currency choice. Those are separate questions, each needing its own specification or its own dataset.</p>
+
+  <h2>What a sharper answer would look like</h2>
+
+  <p>The natural next steps, in order of payoff:</p>
+
+  <p>First, IV identification of the dollar. Either a basket-shift instrument that uses third-country bilateral rates, or a monetary-policy-surprise instrument that exploits high-frequency FOMC windows. Either approach addresses the endogeneity that pushes the OLS estimate toward zero.</p>
+
+  <p>Second, allow time variation in pass-through. The literature finds that pass-through has drifted lower in the U.S. since the 1990s; a state-space specification or a rolling-window IV would let the coefficient breathe instead of forcing a single sample-average estimate.</p>
+
+  <p>Third, separate price effects from quantity effects. The same dollar move that lowers import prices also changes import volumes; running the pass-through specification on <code>RealImports</code> alongside <code>ImportDeflator</code> tells you which margin is doing the work.</p>
+
+  <div class="callout">
+    <p><strong>Bottom line.</strong> The pipeline reports a number that lines up with the empirical prior. The honest framing is that it is a baseline empirical association, computed transparently from public FRED data, that a sharper specification would refine — not a finding that anyone should act on without that sharpening.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Yullie Yang · <a href="../index.html">home</a> · <a href="https://github.com/yullieyang/r-macro-trade-commodity-forecast">flagship repo</a></p>
+</footer>
+
+</body>
+</html>
