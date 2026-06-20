@@ -41,7 +41,7 @@ output: html_document
 
 ### Toolbox
 
-+ **Languages:** R, Python, SQL
++ **Languages:** Python, R, SQL
 + **Frameworks & tools:** tidyverse, ggplot2, pandas, scikit-learn, SQLAlchemy, Streamlit, Power BI, Azure, Git, GitHub Actions, Quarto
 + **Experimentation:** A/B testing, North Star / guardrail metric design, power / MDE analysis, SRM checks, CUPED variance reduction, segmentation with multiple-comparison correction
 + **Domain:** financial model validation, stress testing / scenario analysis, forecasting, policy research support
