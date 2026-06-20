@@ -29,6 +29,7 @@ output: html_document
 
 ### Featured projects
 
++ **[product-ab-experiment](https://github.com/yullieyang/product-ab-experiment)** — end-to-end product-analytics A/B test on 100K users: North Star metric + guardrails, SRM trust check, two-proportion z-test (+0.84pp, p<0.001), power/MDE, CUPED variance reduction, Bonferroni-corrected segmentation, and a ship/no-ship decision memo, plus an ARIMA DAU forecast for monitoring.
 + **[r-macro-trade-commodity-forecast](https://github.com/yullieyang/r-macro-trade-commodity-forecast)** — reproducible R pipeline pulling 13 FRED macro / trade / commodity series into a quarterly panel; derived measures (net exports, implicit trade deflators, terms of trade); 8-quarter `auto.arima` forecasts for net exports, real GDP, and WTI; distributed-lag exchange-rate pass-through regression on U.S. trade prices; CI + Quarto Pages dashboard.
 + **[cre_stress_test](https://github.com/yullieyang/cre_stress_test)** — portfolio-demo stress testing workflow on 100% public data (FRED, Google Mobility, Boston Zoning). Python package + R/auto.arima companion + SQLAlchemy persistence + Streamlit dashboard. Does **not** reflect any employer's internal data or models.
 + **[llm-research-workflow-assistant](https://github.com/yullieyang/llm-research-workflow-assistant)** — reusable prompt templates, sample QC and brief-review outputs, and a human-in-the-loop checklist for using AI coding tools responsibly in recurring research workflows.
