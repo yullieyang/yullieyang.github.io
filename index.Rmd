@@ -27,6 +27,8 @@ output: html_document
 
 💡 I focus on **production-style research code**: reproducible R / Python pipelines, model validation and QA, stress testing, forecasting, and responsible AI-assisted review — translating policy-oriented and financial-modeling decisions into versioned, reviewable artifacts.
 
+🧪 I'm increasingly drawn to **experimentation and metrics analysis** — designing and evaluating A/B tests (North Star metrics, power/MDE, CUPED variance reduction, guardrails) and translating results into clear launch and monitoring recommendations. The same validation mindset I apply to risk models is what I bring to product metrics and AI-workflow evaluation.
+
 ### Featured projects
 
 + **[product-ab-experiment](https://github.com/yullieyang/product-ab-experiment)** — end-to-end product-analytics A/B test on 100K users: North Star metric + guardrails, SRM trust check, two-proportion z-test (+0.84pp, p<0.001), power/MDE, CUPED variance reduction, Bonferroni-corrected segmentation, and a ship/no-ship decision memo, plus an ARIMA DAU forecast for monitoring.
