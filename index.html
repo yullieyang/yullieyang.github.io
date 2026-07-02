@@ -151,6 +151,110 @@
       .toolbox dt { margin-top: 0.6rem; }
       h1 { font-size: 1.8rem; }
     }
+
+    /* ---- Featured Projects: highlighted 2-project showcase ---- */
+    .fp-grid {
+      display: grid;
+      grid-template-columns: 1fr;            /* mobile: 1 column */
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    @media (min-width: 720px) {
+      .fp-grid { grid-template-columns: repeat(2, 1fr); }  /* desktop: 2 columns */
+    }
+    .fp-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .fp-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--navy);
+      box-shadow: 0 10px 28px -12px rgba(21, 38, 63, 0.28);
+    }
+    .fp-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background:
+        radial-gradient(120% 120% at 0% 0%, rgba(31,58,95,0.10), transparent 55%),
+        linear-gradient(135deg, #f5f7fb 0%, #eceff5 100%);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fp-media__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .fp-media__hint {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem; letter-spacing: 0.03em;
+      color: var(--muted);
+      padding: 0.3rem 0.7rem;
+      border: 1px dashed rgba(31,58,95,0.30);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.6);
+    }
+    .fp-body { padding: 1.15rem 1.25rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+    .fp-eyebrow {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.4rem;
+    }
+    .fp-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.15rem; font-weight: 700; line-height: 1.25;
+      color: var(--navy-dark);
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .fp-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.9rem; padding: 0; list-style: none; }
+    .fp-badge {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem; line-height: 1;
+      padding: 0.34rem 0.62rem;
+      border-radius: 999px;
+      color: var(--navy-dark);
+      background: rgba(31,58,95,0.06);
+      border: 1px solid rgba(31,58,95,0.14);
+      white-space: nowrap;
+    }
+    .fp-points { list-style: none; margin: 0 0 1.15rem; padding: 0; }
+    .fp-points li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.9rem; line-height: 1.55;
+      color: var(--ink);
+    }
+    .fp-points li:last-child { margin-bottom: 0; }
+    .fp-points li::before {
+      content: ""; position: absolute; left: 0.05rem; top: 0.6em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent);
+    }
+    .fp-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: auto; padding-top: 0.35rem; }
+    .fp-btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-family: 'Inter', sans-serif; font-size: 0.84rem; font-weight: 600;
+      padding: 0.5rem 0.95rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .fp-btn svg { width: 15px; height: 15px; }
+    .fp-btn--primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .fp-btn--primary:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
+    .fp-btn--ghost { background: transparent; color: var(--navy); border-color: rgba(31,58,95,0.35); }
+    .fp-btn--ghost:hover { border-color: var(--navy); background: rgba(31,58,95,0.05); }
+    .fp-actions a.fp-btn { border-bottom: 1px solid transparent; }
   </style>
 </head>
 <body>
@@ -190,6 +294,82 @@
       <li style="margin-bottom: 0.4rem;"><strong>M.S. Business Analytics</strong>, University of Maryland, College Park (Dec 2023)</li>
       <li><strong>B.A. Global Political Economy</strong>, Waseda University, Tokyo (2022)</li>
     </ul>
+  </section>
+
+  <section class="fp-section" id="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="fp-grid">
+
+      <!-- Project 1 -->
+      <article class="fp-card">
+        <div class="fp-media">
+          <!-- Drop your real asset at this path (or change the src); the dashed chip shows until then -->
+          <img class="fp-media__img" src="images/project1-placeholder.png" alt="Agentic AI evaluation dashboard" onerror="this.remove()">
+          <span class="fp-media__hint">dashboard / architecture diagram</span>
+        </div>
+        <div class="fp-body">
+          <p class="fp-eyebrow">Applied AI research</p>
+          <h3 class="fp-title">Agentic AI Evaluation &amp; Monitoring Platform</h3>
+
+          <ul class="fp-stack" aria-label="Tech stack">
+            <li class="fp-badge">Python</li>
+            <li class="fp-badge">LLM APIs</li>
+            <li class="fp-badge">Streamlit</li>
+            <li class="fp-badge">LangGraph</li>
+          </ul>
+
+          <ul class="fp-points">
+            <li>Developed an adversarial evaluation platform using synthetic model-failure datasets to stress-test LLM workflows and ensure grounded outputs.</li>
+            <li>Designed a validation dashboard benchmarking precision, recall, and confidence to map hallucination patterns and optimize reviewer decisions.</li>
+          </ul>
+
+          <div class="fp-actions">
+            <a class="fp-btn fp-btn--primary" href="https://github.com/yullieyang/agentic-ai-evaluation-platform">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+            <!-- Replace href="#" with your deployed Streamlit URL -->
+            <a class="fp-btn fp-btn--ghost" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5H3.5v9h9v-3M9.5 2.5h4v4M13 3l-6 6"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="fp-card">
+        <div class="fp-media">
+          <!-- Drop your real asset at this path (or change the src); the dashed chip shows until then -->
+          <img class="fp-media__img" src="images/project2-placeholder.png" alt="A/B test statistical plot" onerror="this.remove()">
+          <span class="fp-media__hint">data visualization / statistical plot</span>
+        </div>
+        <div class="fp-body">
+          <p class="fp-eyebrow">Product experimentation</p>
+          <h3 class="fp-title">Product Experimentation &amp; Metrics Analysis</h3>
+
+          <ul class="fp-stack" aria-label="Tech stack">
+            <li class="fp-badge">Python</li>
+            <li class="fp-badge">pandas</li>
+            <li class="fp-badge">scipy</li>
+            <li class="fp-badge">statsmodels</li>
+          </ul>
+
+          <ul class="fp-points">
+            <li>Spearheaded a simulated feed-ranking A/B test (7-day retention), integrating SRM checks, power/MDE analysis, and CUPED variance reduction.</li>
+            <li>Analyzed segment-level treatment effects and trade-offs, translating statistical insights into data-driven launch and monitoring plans.</li>
+          </ul>
+
+          <div class="fp-actions">
+            <a class="fp-btn fp-btn--primary" href="https://github.com/yullieyang/product-ab-experiment">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </section>
 
   <section>
