@@ -4,479 +4,686 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yullie Yang — Data Scientist &amp; Quantitative Analyst</title>
-  <meta name="description" content="Yullie Yang — data scientist and quantitative analyst: model validation, experimentation and A/B testing, and LLM / AI-system evaluation. Experience at the Federal Reserve Board, Guidehouse, and CoStar.">
+  <meta name="description" content="Yullie Yang — data scientist and quantitative analyst focused on evaluating whether models, metrics, and AI systems are reliable enough to support real decisions. Experience at the Federal Reserve Board, Guidehouse, and CoStar.">
   <link rel="canonical" href="https://yullieyang.github.io/">
   <meta property="og:title" content="Yullie Yang — Data Scientist &amp; Quantitative Analyst">
-  <meta property="og:description" content="Data scientist and quantitative analyst — model validation, A/B experimentation, and LLM / AI-system evaluation. Experience at the Federal Reserve Board.">
+  <meta property="og:description" content="I evaluate whether models, metrics, and AI systems are reliable enough to support real decisions — model validation, experimentation, and LLM / AI evaluation.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yullieyang.github.io/">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B4552E'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23FBFAF7' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
 
   <style>
     :root {
-      --navy: #1f3a5f;
-      --navy-dark: #15263f;
-      --accent: #9c1f1f;
-      --ink: #1a1a1a;
-      --muted: #5a5a5a;
-      --rule: #e4e4e7;
-      --bg: #fafafa;
-      --card: #ffffff;
-      --max: 880px;
+      --paper:   #FBFAF7;
+      --paper-2: #F4F1EA;
+      --card:    #FFFFFF;
+      --ink:     #1B1A17;
+      --ink-2:   #2C2A25;
+      --muted:   #6E6A61;
+      --faint:   #928D82;
+      --line:    #E7E3DA;
+      --line-2:  #DBD6CB;
+      --accent:  #B4552E;
+      --accent-deep: #8E3F1F;
+      --accent-soft: rgba(180, 85, 46, 0.09);
+      --wrap: 1080px;
+      --serif: Georgia, "Times New Roman", "Iowan Old Style", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      --shadow-sm: 0 1px 2px rgba(27, 26, 23, 0.05);
+      --shadow-md: 0 14px 34px -18px rgba(27, 26, 23, 0.30);
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--sans);
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--ink);
-      background: var(--bg);
+      background: var(--paper);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    a { color: var(--navy); text-decoration: none; border-bottom: 1px solid rgba(31, 58, 95, 0.25); transition: border-color 0.15s ease; }
-    a:hover { border-bottom-color: var(--navy); }
-    h1, h2, h3 {
-      font-family: 'Source Serif 4', Georgia, serif;
-      color: var(--navy-dark);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-    h1 { font-size: 2.1rem; margin: 0 0 0.25rem; line-height: 1.2; }
-    h2 { font-size: 1.35rem; margin: 2.5rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule); }
-    h3 { font-size: 1.05rem; margin: 0 0 0.35rem; font-weight: 700; }
-    code, .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
-    code { background: #f1f1f4; padding: 0.05em 0.35em; border-radius: 3px; color: var(--navy-dark); }
+    a { color: var(--accent-deep); text-decoration: none; }
+    a:hover { color: var(--accent); }
 
-    header {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 4rem 1.5rem 1.5rem;
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    .avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--rule);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .role { color: var(--muted); font-size: 1.05rem; margin: 0.25rem 0 0.6rem; }
-    .meta { color: var(--muted); font-size: 0.92rem; }
-    .meta span + span::before { content: " · "; margin: 0 0.15rem; color: var(--rule); }
+    h1, h2, h3 { font-family: var(--serif); color: var(--ink-2); font-weight: 700; letter-spacing: -0.015em; overflow-wrap: break-word; }
+    body { overflow-x: hidden; }
 
-    main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem 4rem; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.6rem; }
+    @media (max-width: 440px) { .wrap { padding: 0 1.15rem; } .hero h1 { font-size: 1.95rem; } .section { padding: 3.5rem 0; } }
 
-    .bio p { margin: 0 0 0.85rem; }
-    .bio p:last-child { margin-bottom: 0; }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .project {
-      background: var(--card);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      padding: 1.1rem 1.2rem;
-      transition: border-color 0.15s ease, transform 0.15s ease;
-    }
-    .project:hover { border-color: var(--navy); }
-    .project h3 a { border-bottom: none; color: var(--navy-dark); }
-    .project h3 a:hover { color: var(--navy); }
-    .project p { margin: 0.35rem 0 0; color: var(--ink); font-size: 0.94rem; line-height: 1.55; }
-    .project .tag {
-      display: inline-block;
+    .eyebrow {
+      font-family: var(--mono);
       font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.35rem;
+      margin: 0 0 0.9rem;
     }
-    .project .stack {
-      display: block;
-      margin-top: 0.6rem;
-      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.78rem;
-      color: var(--muted);
+    .section { padding: 5rem 0; border-top: 1px solid var(--line); }
+    .section-head { max-width: 640px; margin: 0 0 2.4rem; }
+    .section-head h2 { font-size: 1.9rem; line-height: 1.15; margin: 0 0 0.6rem; }
+    .section-head p { color: var(--muted); font-size: 1.02rem; margin: 0; }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251, 250, 247, 0.82);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+    .brand { font-family: var(--serif); font-weight: 700; font-size: 1rem; color: var(--ink-2); letter-spacing: -0.01em; }
+    .brand .dot { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.7rem; }
+    .nav-links a { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links .nav-cta {
+      color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 8px;
+      padding: 0.42rem 0.9rem; background: var(--card);
+    }
+    .nav-links .nav-cta:hover { border-color: var(--accent); color: var(--accent-deep); }
+    @media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+    /* ---------- hero ---------- */
+    .hero { position: relative; padding: 5.5rem 0 4.5rem; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(120% 90% at 12% -10%, rgba(180, 85, 46, 0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+    .hero h1 { font-size: 2.85rem; line-height: 1.13; margin: 0 0 1.3rem; max-width: 15ch; }
+    .hero h1 .hl { color: var(--accent-deep); }
+    .hero-sub { font-size: 1.13rem; line-height: 1.6; color: var(--muted); max-width: 52ch; margin: 0 0 2rem; }
+    .hero-photo {
+      width: 132px; height: 132px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--card); box-shadow: 0 6px 22px -8px rgba(27,26,23,0.35), 0 0 0 1px var(--line-2);
+    }
+    @media (max-width: 780px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .hero-photo { width: 96px; height: 96px; order: -1; }
+      .hero h1 { font-size: 2.15rem; }
     }
 
-.toolbox { display: grid; grid-template-columns: 160px 1fr; gap: 0.4rem 1.2rem; font-size: 0.94rem; }
-    .toolbox dt { color: var(--navy-dark); font-weight: 600; }
-    .toolbox dd { margin: 0; color: var(--ink); }
-
-    .ai-note {
-      background: #f3f5f9;
-      border-left: 3px solid var(--navy);
-      padding: 0.9rem 1.1rem;
-      border-radius: 3px;
-      font-size: 0.94rem;
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2.2rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.92rem; font-weight: 600; font-family: var(--sans);
+      padding: 0.62rem 1.15rem; border-radius: 9px; border: 1px solid transparent;
+      transition: transform 0.14s ease, background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
     }
-    .ai-note p { margin: 0; }
-    .ai-note strong { color: var(--navy-dark); }
+    .btn svg { width: 16px; height: 16px; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-deep); color: #fff; transform: translateY(-1px); }
+    .btn-ghost { background: var(--card); color: var(--ink-2); border-color: var(--line-2); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent-deep); transform: translateY(-1px); }
 
-    .contact { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 0.96rem; }
-    .contact a { display: inline-flex; align-items: center; gap: 0.4rem; }
-
-    footer {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
-      color: var(--muted);
-      font-size: 0.82rem;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 1.5rem;
-      justify-content: space-between;
-    }
-    footer a { color: var(--muted); border-bottom-color: transparent; }
-    footer a:hover { color: var(--navy); border-bottom-color: var(--navy); }
-
-    @media (max-width: 600px) {
-      header { grid-template-columns: 1fr; text-align: center; padding-top: 2.5rem; }
-      .avatar { margin: 0 auto; width: 120px; height: 120px; }
-      .toolbox { grid-template-columns: 1fr; gap: 0.2rem; }
-      .toolbox dt { margin-top: 0.6rem; }
-      h1 { font-size: 1.8rem; }
+    .cred-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .cred-row .lbl { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-right: 0.3rem; }
+    .cred {
+      font-size: 0.8rem; font-weight: 600; color: var(--ink-2);
+      background: var(--card); border: 1px solid var(--line-2);
+      padding: 0.34rem 0.72rem; border-radius: 999px;
     }
 
-    /* ---- Featured Projects: highlighted 2-project showcase ---- */
-    .fp-grid {
-      display: grid;
-      grid-template-columns: 1fr;            /* mobile: 1 column */
-      gap: 1.25rem;
-      margin-top: 1rem;
+    /* ---------- pillars ---------- */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.1rem; }
+    .pillar {
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      padding: 1.5rem 1.5rem 1.6rem; box-shadow: var(--shadow-sm);
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
     }
-    @media (min-width: 720px) {
-      .fp-grid { grid-template-columns: repeat(2, 1fr); }  /* desktop: 2 columns */
+    .pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
+    .pillar-ic {
+      width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center;
+      background: var(--accent-soft); color: var(--accent-deep); margin-bottom: 1rem;
     }
-    .fp-card {
-      display: flex;
-      flex-direction: column;
-      background: var(--card);
-      border: 1px solid var(--rule);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-    .fp-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--navy);
-      box-shadow: 0 10px 28px -12px rgba(21, 38, 63, 0.28);
-    }
-    .fp-media {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      background:
-        radial-gradient(120% 120% at 0% 0%, rgba(31,58,95,0.10), transparent 55%),
-        linear-gradient(135deg, #f5f7fb 0%, #eceff5 100%);
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .fp-media__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-    .fp-media__hint {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.72rem; letter-spacing: 0.03em;
-      color: var(--muted);
-      padding: 0.3rem 0.7rem;
-      border: 1px dashed rgba(31,58,95,0.30);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.6);
-    }
-    .fp-body { padding: 1.15rem 1.25rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
-    .fp-eyebrow {
-      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.7rem; font-weight: 500;
-      letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 0.4rem;
-    }
-    .fp-title {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 1.15rem; font-weight: 700; line-height: 1.25;
-      color: var(--navy-dark);
-      margin: 0 0 0.75rem;
-      letter-spacing: -0.01em;
-    }
-    .fp-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.9rem; padding: 0; list-style: none; }
-    .fp-badge {
-      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.72rem; line-height: 1;
-      padding: 0.34rem 0.62rem;
-      border-radius: 999px;
-      color: var(--navy-dark);
-      background: rgba(31,58,95,0.06);
-      border: 1px solid rgba(31,58,95,0.14);
+    .pillar-ic svg { width: 22px; height: 22px; }
+    .pillar h3 { font-size: 1.16rem; margin: 0 0 0.5rem; }
+    .pillar p { color: var(--muted); font-size: 0.94rem; margin: 0 0 1.1rem; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
+    .chip {
+      font-family: var(--mono); font-size: 0.72rem; line-height: 1;
+      padding: 0.36rem 0.6rem; border-radius: 7px;
+      color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--line);
       white-space: nowrap;
     }
-    .fp-points { list-style: none; margin: 0 0 1.15rem; padding: 0; }
-    .fp-points li {
-      position: relative;
-      padding-left: 1.1rem;
-      margin-bottom: 0.55rem;
-      font-size: 0.9rem; line-height: 1.55;
-      color: var(--ink);
+
+    /* ---------- career map ---------- */
+    .map { display: flex; flex-direction: column; gap: 0.4rem; }
+    .map-node {
+      background: var(--card); border: 1px solid var(--line); border-radius: 13px;
+      padding: 1.25rem 1.35rem; flex: 1; box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column;
     }
-    .fp-points li:last-child { margin-bottom: 0; }
-    .fp-points li::before {
-      content: ""; position: absolute; left: 0.05rem; top: 0.6em;
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--accent);
+    .map-node .step { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-bottom: 0.5rem; }
+    .map-node h3 { font-size: 1.04rem; margin: 0 0 0.15rem; }
+    .map-node .domain { font-size: 0.82rem; color: var(--accent-deep); font-weight: 600; margin: 0 0 0.7rem; }
+    .map-node .kw { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+    .map-node .kw span { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 0.22rem 0.45rem; }
+    .map-node p { font-size: 0.87rem; line-height: 1.5; color: var(--muted); margin: auto 0 0; }
+    .map-node.is-target { background: #221E1A; border-color: #221E1A; }
+    .map-node.is-target .step { color: rgba(255,255,255,0.5); }
+    .map-node.is-target h3 { color: #fff; }
+    .map-node.is-target .domain { color: #E9A17C; }
+    .map-node.is-target .kw span { color: #EDE7DF; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); }
+    .map-node.is-target p { color: rgba(255,255,255,0.72); }
+    .map-arrow { align-self: center; color: var(--line-2); flex: 0 0 auto; display: flex; }
+    .map-arrow svg { width: 22px; height: 22px; transform: rotate(90deg); }
+    @media (min-width: 900px) {
+      .map { flex-direction: row; align-items: stretch; }
+      .map-arrow svg { transform: none; }
     }
-    .fp-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: auto; padding-top: 0.35rem; }
-    .fp-btn {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      font-family: 'Inter', sans-serif; font-size: 0.84rem; font-weight: 600;
-      padding: 0.5rem 0.95rem;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    /* ---------- featured projects ---------- */
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1.3rem; }
+    @media (min-width: 780px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    .pcard {
+      display: flex; flex-direction: column; background: var(--card);
+      border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
     }
-    .fp-btn svg { width: 15px; height: 15px; }
-    .fp-btn--primary { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .fp-btn--primary:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
-    .fp-btn--ghost { background: transparent; color: var(--navy); border-color: rgba(31,58,95,0.35); }
-    .fp-btn--ghost:hover { border-color: var(--navy); background: rgba(31,58,95,0.05); }
-    .fp-actions a.fp-btn { border-bottom: 1px solid transparent; }
+    .pcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
+    .pcard-media { background: linear-gradient(160deg, #FCFBF8 0%, #F2EFE8 100%); border-bottom: 1px solid var(--line); padding: 1.1rem 1.3rem 0.5rem; }
+    .pcard-media svg { width: 100%; height: auto; display: block; }
+    .pcard-body { padding: 1.35rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    .pcard .cat { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.45rem; }
+    .pcard h3 { font-size: 1.24rem; margin: 0 0 0.6rem; line-height: 1.2; }
+    .pcard .evals { font-size: 0.95rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.5; }
+    .pcard .chips { margin-bottom: 1.1rem; }
+    .pcard .why {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.5;
+      border-left: 2px solid var(--accent); padding-left: 0.85rem; margin: 0 0 1.25rem;
+    }
+    .pcard .why b { color: var(--ink-2); font-weight: 600; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.09em; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .pcard .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: auto; }
+    .pcard .actions .btn { font-size: 0.85rem; padding: 0.5rem 0.95rem; }
+
+    /* ---------- environments (high-stakes) ---------- */
+    .band { background: var(--paper-2); border-top: 1px solid var(--line); }
+    .band .lead { font-family: var(--serif); font-size: 1.5rem; line-height: 1.4; color: var(--ink-2); max-width: 46ch; margin: 0 0 2.4rem; letter-spacing: -0.01em; }
+    .band .lead .hl { color: var(--accent-deep); }
+    .env {
+      background: var(--card); border: 1px solid var(--line); border-radius: 13px;
+      padding: 1.4rem 1.45rem; box-shadow: var(--shadow-sm);
+    }
+    .env .org { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.55rem; }
+    .env h3 { font-size: 1.08rem; margin: 0 0 0.5rem; }
+    .env p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+    /* ---------- toolbox ---------- */
+    .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .tool {
+      background: var(--card); border: 1px solid var(--line); border-radius: 13px;
+      padding: 1.2rem 1.3rem 1.35rem; box-shadow: var(--shadow-sm);
+    }
+    .tool h3 { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); font-weight: 700; margin: 0 0 0.85rem; }
+
+    /* ---------- more / secondary ---------- */
+    .more-strip { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.6rem; padding-top: 1.6rem; border-top: 1px dashed var(--line-2); }
+    .more-item { flex: 1 1 260px; }
+    .more-item a { font-weight: 600; }
+    .more-item p { font-size: 0.85rem; color: var(--muted); margin: 0.2rem 0 0; }
+
+    /* ---------- contact / footer ---------- */
+    .contact { text-align: center; }
+    .contact h2 { font-size: 2rem; margin: 0 0 0.8rem; }
+    .contact p { color: var(--muted); max-width: 46ch; margin: 0 auto 1.8rem; }
+    .contact .btn-row { justify-content: center; }
+    .contact .loc { font-family: var(--mono); font-size: 0.78rem; color: var(--faint); margin-top: 1.6rem; }
+    footer {
+      border-top: 1px solid var(--line); padding: 1.8rem 0; margin-top: 1rem;
+      color: var(--faint); font-size: 0.8rem;
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; justify-content: space-between; align-items: center;
+    }
+    footer a { color: var(--muted); }
+    footer .foot-links { display: flex; flex-wrap: wrap; gap: 1.1rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <img class="avatar" src="images/profile_pic.jpg" alt="Yullie Yang">
-  <div>
-    <h1>Yullie Yang</h1>
-    <p class="role">Data Scientist &amp; Quantitative Analyst — model validation, experimentation, and LLM&nbsp;/&nbsp;AI-system evaluation</p>
-    <p class="meta">
-      <span>San Francisco Bay Area</span>
-      <span><a href="mailto:yullieyang@gmail.com">yullieyang@gmail.com</a></span>
-      <span><a href="https://github.com/yullieyang">GitHub</a></span>
-      <span><a href="https://linkedin.com/in/yullie-yang">LinkedIn</a></span>
-      <span><a href="files/YullieYangResume.pdf">Resume (PDF)</a></span>
-    </p>
+<nav>
+  <div class="wrap nav-inner">
+    <span class="brand">Yullie&nbsp;Yang<span class="dot">.</span></span>
+    <div class="nav-links">
+      <a href="#focus">Focus</a>
+      <a href="#path">Path</a>
+      <a href="#projects">Projects</a>
+      <a href="#toolbox">Toolbox</a>
+      <a class="nav-cta" href="files/YullieYangResume.pdf">Résumé</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Data Scientist · Quantitative Analyst · San Francisco Bay Area</p>
+      <h1>I evaluate whether models, metrics, and AI&nbsp;systems are <span class="hl">reliable enough</span> to support real decisions.</h1>
+      <p class="hero-sub">I work across credit-risk model validation, product experimentation, and LLM&nbsp;/&nbsp;AI-system evaluation — the shared discipline of deciding when an output can be trusted, and saying so clearly when it can't.</p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#projects">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l3.5-4 2.5 2.5L13 4"/><path d="M9.5 4H13v3.5"/></svg>
+          View projects
+        </a>
+        <a class="btn btn-ghost" href="files/YullieYangResume.pdf">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10"/></svg>
+          Résumé
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/yullieyang">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/yullie-yang">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.6 0H2.4A2.4 2.4 0 0 0 0 2.4v11.2A2.4 2.4 0 0 0 2.4 16h11.2a2.4 2.4 0 0 0 2.4-2.4V2.4A2.4 2.4 0 0 0 13.6 0zM4.9 13.4H2.6V6h2.3v7.4zM3.7 5A1.34 1.34 0 1 1 3.7 2.3 1.34 1.34 0 0 1 3.7 5zm9.7 8.4h-2.3V9.8c0-.86-.02-1.97-1.2-1.97-1.2 0-1.38.94-1.38 1.9v3.67H6.2V6h2.2v1h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.53v4.07z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="cred-row">
+        <span class="lbl">Track record</span>
+        <span class="cred">CoStar Risk Analytics</span>
+        <span class="cred">Guidehouse Federal Analytics</span>
+        <span class="cred">Federal Reserve Board</span>
+        <span class="cred">Penn MAS-CS</span>
+      </div>
+    </div>
+    <img class="hero-photo" src="images/profile_pic.jpg" alt="Yullie Yang">
   </div>
 </header>
 
-<main>
+<!-- ============ THREE PILLARS ============ -->
+<section class="section" id="focus">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What I do</p>
+      <h2>Three angles on one question: can this output be trusted?</h2>
+      <p>The same validation discipline runs through everything I work on — whether the output comes from a credit model, an experiment, or an LLM.</p>
+    </div>
+    <div class="grid-3">
 
-  <section class="bio">
-    <h2>About</h2>
-    <p>I'm a <strong>data scientist</strong> focused on experimentation, machine learning, and AI&nbsp;/&nbsp;LLM systems. I turn high-stakes data into decisions — defining metrics, designing and analyzing A/B tests, and evaluating whether a model (statistical or LLM-based) is reliable enough to ship.</p>
-    <p>Rigor and reproducibility are defaults, shaped by work in regulated, high-stakes settings including the <strong>Federal Reserve Board</strong>: experimentation with power&nbsp;/&nbsp;MDE and CUPED variance reduction, confidence calibration and uncertainty quantification, and Python&nbsp;/&nbsp;SQL pipelines that are auditable end to end.</p>
-    <p>Most of my recent work is in <strong>applied AI</strong> — building and evaluating LLM and agentic systems (RAG and agent workflows) for reliability, calibration, and evidence grounding, with human-in-the-loop review. The question I care about most: <em>does this model actually do what it claims?</em></p>
-  </section>
-
-  <section>
-    <h2>Background</h2>
-    <p style="margin: 0 0 0.6rem; color: var(--muted);">Data scientist &amp; quantitative analyst — Federal Reserve Board · Guidehouse · CoStar.</p>
-    <ul style="list-style: none; padding: 0; margin: 0;">
-      <li style="margin-bottom: 0.4rem;"><strong>Quantitative Analyst</strong>, CoStar Group — Boston, MA (2025&nbsp;–&nbsp;present)</li>
-      <li style="margin-bottom: 0.4rem;"><strong>Data Scientist&nbsp;/&nbsp;Consultant</strong>, Guidehouse — McLean, VA (2024&nbsp;–&nbsp;2025)</li>
-      <li style="margin-bottom: 0.4rem;"><strong>Graduate Intern</strong>, Federal Reserve Board, Division of International Finance — Washington, DC (Summer 2023)</li>
-      <li style="margin-bottom: 0.4rem;"><strong>Master of Applied Science in Computer Science</strong>, University of Pennsylvania (in progress)</li>
-      <li style="margin-bottom: 0.4rem;"><strong>M.S. Business Analytics</strong>, University of Maryland, College Park (Dec 2023)</li>
-      <li><strong>B.A. Global Political Economy</strong>, Waseda University, Tokyo (2022)</li>
-    </ul>
-  </section>
-
-  <section class="fp-section" id="featured-projects">
-    <h2>Featured Projects</h2>
-    <div class="fp-grid">
-
-      <!-- Project 1 -->
-      <article class="fp-card">
-        <div class="fp-media">
-          <!-- Drop your real asset at this path (or change the src); the dashed chip shows until then -->
-          <img class="fp-media__img" src="images/project1-calibration.png" alt="Reliability diagram: model confidence vs empirical accuracy for the LLM QA agent, ECE 0.166 over 600 synthetic cases" onerror="this.remove()">
-          <span class="fp-media__hint">dashboard / architecture diagram</span>
+      <div class="pillar">
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
         </div>
-        <div class="fp-body">
-          <p class="fp-eyebrow">Applied AI research</p>
-          <h3 class="fp-title">Agentic AI Evaluation &amp; Monitoring Platform</h3>
+        <h3>AI &amp; LLM Evaluation</h3>
+        <p>Measuring whether LLM and agent workflows stay grounded, calibrated, and safe enough for a person to act on.</p>
+        <ul class="chips">
+          <li class="chip">RAG evaluation</li>
+          <li class="chip">LLM / agent eval</li>
+          <li class="chip">confidence calibration</li>
+          <li class="chip">grounding checks</li>
+          <li class="chip">human-in-the-loop</li>
+          <li class="chip">failure-mode analysis</li>
+        </ul>
+      </div>
 
-          <ul class="fp-stack" aria-label="Tech stack">
-            <li class="fp-badge">Python</li>
-            <li class="fp-badge">LLM APIs</li>
-            <li class="fp-badge">pydantic</li>
-            <li class="fp-badge">Streamlit</li>
+      <div class="pillar">
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.7v5.1c0 4.4-3 7.2-7 8.2-4-1-7-3.8-7-8.2V5.7z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Risk &amp; Model Validation</h3>
+        <p>Testing model outputs against scenarios and stress conditions before they inform a decision.</p>
+        <ul class="chips">
+          <li class="chip">model validation</li>
+          <li class="chip">stress testing</li>
+          <li class="chip">scenario analysis</li>
+          <li class="chip">sensitivity analysis</li>
+          <li class="chip">model monitoring</li>
+          <li class="chip">credit-risk analytics</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20v-6M11 20V5M16 20v-9"/><circle cx="11" cy="5" r="1.3" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3>Experimentation &amp; Metrics</h3>
+        <p>Designing experiments and metrics that separate real effects from noise and guardrail risk.</p>
+        <ul class="chips">
+          <li class="chip">A/B testing</li>
+          <li class="chip">power / MDE</li>
+          <li class="chip">CUPED</li>
+          <li class="chip">SRM checks</li>
+          <li class="chip">metric design</li>
+          <li class="chip">segmentation</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREER MAP ============ -->
+<section class="section" id="path">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The path</p>
+      <h2>Policy analytics to model risk to AI evaluation</h2>
+      <p>Each role added a piece of the same skill: making analytical outputs traceable, testable, and safe to decide on.</p>
+    </div>
+    <div class="map">
+
+      <div class="map-node">
+        <span class="step">2023 · Foundation</span>
+        <h3>Federal Reserve Board</h3>
+        <p class="domain">High-stakes policy &amp; macro-financial analytics</p>
+        <div class="kw"><span>NLP / doc analysis</span><span>Python automation</span><span>research tooling</span></div>
+        <p>Learned how analytical work holds up when it feeds policy — where being wrong is expensive and evidence has to be traceable.</p>
+      </div>
+
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+
+      <div class="map-node">
+        <span class="step">2024–25 · Applied AI</span>
+        <h3>Guidehouse</h3>
+        <p class="domain">Federal analytics, RAG &amp; LLM workflows</p>
+        <div class="kw"><span>RAG evaluation</span><span>LangChain / LangGraph</span><span>failure-mode docs</span></div>
+        <p>Started evaluating AI systems directly — measuring retrieval quality and documenting where LLM workflows break.</p>
+      </div>
+
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+
+      <div class="map-node">
+        <span class="step">2025–now · Model risk</span>
+        <h3>CoStar Group</h3>
+        <p class="domain">Credit-risk model validation &amp; monitoring</p>
+        <div class="kw"><span>stress testing</span><span>model QA</span><span>release readiness</span></div>
+        <p>Own the discipline of validation — QA, monitoring, and stress-testing model outputs before they ship.</p>
+      </div>
+
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+
+      <div class="map-node is-target">
+        <span class="step">Direction</span>
+        <h3>AI Evaluation &amp; Risk</h3>
+        <p class="domain">Decision reliability for AI systems</p>
+        <div class="kw"><span>AI evaluation</span><span>model risk</span><span>trust &amp; safety</span></div>
+        <p>The same validation mindset, applied to whether AI systems are reliable enough to trust.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Selected work</p>
+      <h2>Projects, framed by what they evaluate</h2>
+      <p>Each one is a small, reproducible study of whether a system does what it claims — with the methods and the verdict made explicit.</p>
+    </div>
+    <div class="grid-2">
+
+      <!-- P1 -->
+      <article class="pcard">
+        <div class="pcard-media">
+          <!-- Reliability / calibration diagram -->
+          <svg viewBox="0 0 320 150" role="img" aria-label="Reliability diagram: predicted confidence versus observed accuracy">
+            <rect x="0" y="0" width="320" height="150" fill="none"/>
+            <line x1="40" y1="20" x2="40" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <line x1="40" y1="120" x2="300" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <line x1="40" y1="120" x2="300" y2="20" stroke="#C7C1B5" stroke-width="1.2" stroke-dasharray="4 4"/>
+            <polyline points="40,120 92,108 144,96 196,70 248,44 300,26" fill="none" stroke="#B4552E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#B4552E"><circle cx="92" cy="108" r="3"/><circle cx="144" cy="96" r="3"/><circle cx="196" cy="70" r="3"/><circle cx="248" cy="44" r="3"/><circle cx="300" cy="26" r="3"/></g>
+            <text x="40" y="140" font-family="ui-monospace,monospace" font-size="9" fill="#928D82">confidence →</text>
+            <text x="248" y="16" font-family="ui-monospace,monospace" font-size="9" fill="#928D82">accuracy</text>
+          </svg>
+        </div>
+        <div class="pcard-body">
+          <p class="cat">AI Evaluation</p>
+          <h3>Agentic AI Evaluation &amp; Monitoring Platform</h3>
+          <p class="evals">Whether an LLM-based QA agent can review model-monitoring anomalies while staying grounded, calibrated, and reviewable by a human.</p>
+          <ul class="chips">
+            <li class="chip">600 synthetic cases</li>
+            <li class="chip">15 failure types</li>
+            <li class="chip">precision / recall</li>
+            <li class="chip">confidence calibration</li>
+            <li class="chip">unsupported-claim analysis</li>
+            <li class="chip">human-in-the-loop</li>
           </ul>
-
-          <ul class="fp-points">
-            <li>Developed an adversarial evaluation platform using synthetic model-failure datasets to stress-test LLM workflows and ensure grounded outputs.</li>
-            <li>Designed a validation dashboard benchmarking precision, recall, and confidence to map hallucination patterns and optimize reviewer decisions.</li>
-          </ul>
-
-          <div class="fp-actions">
-            <a class="fp-btn fp-btn--primary" href="https://github.com/yullieyang/agentic-ai-evaluation-platform">
+          <p class="why"><b>Why it matters</b>AI tools inside risk workflows have to be auditable and evidence-grounded before an analyst can rely on them.</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://github.com/yullieyang/agentic-ai-evaluation-platform">
               <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-              GitHub
-            </a>
-            <!-- Replace href="#" with your deployed Streamlit URL -->
-            <a class="fp-btn fp-btn--ghost" href="#" target="_blank" rel="noopener">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5H3.5v9h9v-3M9.5 2.5h4v4M13 3l-6 6"/></svg>
-              Live Demo
+              View on GitHub
             </a>
           </div>
         </div>
       </article>
 
-      <!-- Project 2 -->
-      <article class="fp-card">
-        <div class="fp-media">
-          <!-- Drop your real asset at this path (or change the src); the dashed chip shows until then -->
-          <img class="fp-media__img" src="images/project2-retention.png" alt="A/B test bar chart: 7-day retention, Control 14.66% vs Treatment 15.49% (+0.84 pp, p=0.0002)" onerror="this.remove()">
-          <span class="fp-media__hint">data visualization / statistical plot</span>
+      <!-- P2 -->
+      <article class="pcard">
+        <div class="pcard-media">
+          <!-- Treatment vs control retention -->
+          <svg viewBox="0 0 320 150" role="img" aria-label="Treatment versus control retention over time, treatment above control">
+            <line x1="40" y1="120" x2="300" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <line x1="40" y1="20" x2="40" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <polyline points="40,96 92,90 144,86 196,84 248,83 300,82" fill="none" stroke="#9A958A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="40,94 92,82 144,72 196,66 248,62 300,60" fill="none" stroke="#B4552E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="300" cy="60" r="3.4" fill="#B4552E"/>
+            <circle cx="300" cy="82" r="3.4" fill="#9A958A"/>
+            <text x="200" y="52" font-family="ui-monospace,monospace" font-size="9" fill="#B4552E">treatment  +0.84pp</text>
+            <text x="230" y="98" font-family="ui-monospace,monospace" font-size="9" fill="#928D82">control</text>
+            <text x="40" y="140" font-family="ui-monospace,monospace" font-size="9" fill="#928D82">days since exposure →</text>
+          </svg>
         </div>
-        <div class="fp-body">
-          <p class="fp-eyebrow">Product experimentation</p>
-          <h3 class="fp-title">Product Experimentation &amp; Metrics Analysis</h3>
-
-          <ul class="fp-stack" aria-label="Tech stack">
-            <li class="fp-badge">Python</li>
-            <li class="fp-badge">pandas</li>
-            <li class="fp-badge">scipy</li>
-            <li class="fp-badge">statsmodels</li>
+        <div class="pcard-body">
+          <p class="cat">Experimentation</p>
+          <h3>Product Experimentation &amp; Metrics Analysis</h3>
+          <p class="evals">Whether a simulated feed-ranking change improves 7-day retention without moving guardrail metrics the wrong way.</p>
+          <ul class="chips">
+            <li class="chip">100K users</li>
+            <li class="chip">SRM check</li>
+            <li class="chip">power / MDE</li>
+            <li class="chip">CUPED</li>
+            <li class="chip">segmentation</li>
+            <li class="chip">launch call</li>
           </ul>
-
-          <ul class="fp-points">
-            <li>Spearheaded a simulated feed-ranking A/B test (7-day retention), integrating SRM checks, power/MDE analysis, and CUPED variance reduction.</li>
-            <li>Analyzed segment-level treatment effects and trade-offs, translating statistical insights into data-driven launch and monitoring plans.</li>
-          </ul>
-
-          <div class="fp-actions">
-            <a class="fp-btn fp-btn--primary" href="https://github.com/yullieyang/product-ab-experiment">
+          <p class="why"><b>Why it matters</b>Sound product decisions need both a statistical result and judgment about which metrics actually matter.</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://github.com/yullieyang/product-ab-experiment">
               <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-              GitHub
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P3 -->
+      <article class="pcard">
+        <div class="pcard-media">
+          <!-- Baseline / adverse / severe scenario fan -->
+          <svg viewBox="0 0 320 150" role="img" aria-label="Baseline, adverse, and severe stress scenarios diverging downward">
+            <line x1="40" y1="120" x2="300" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <line x1="40" y1="20" x2="40" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <polyline points="40,50 100,48 160,45 220,43 300,40" fill="none" stroke="#9A958A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="40,50 100,58 160,70 220,80 300,88" fill="none" stroke="#C08A3E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="40,50 100,66 160,88 220,102 300,112" fill="none" stroke="#B4552E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="252" y="36" font-family="ui-monospace,monospace" font-size="9" fill="#928D82">baseline</text>
+            <text x="256" y="84" font-family="ui-monospace,monospace" font-size="9" fill="#C08A3E">adverse</text>
+            <text x="258" y="122" font-family="ui-monospace,monospace" font-size="9" fill="#B4552E">severe</text>
+          </svg>
+        </div>
+        <div class="pcard-body">
+          <p class="cat">Risk Analytics</p>
+          <h3>CRE Stress Testing Workflow</h3>
+          <p class="evals">How macro and market stress scenarios move commercial-real-estate risk indicators, using only public data.</p>
+          <ul class="chips">
+            <li class="chip">scenario analysis</li>
+            <li class="chip">stress testing</li>
+            <li class="chip">forecasting</li>
+            <li class="chip">model monitoring</li>
+            <li class="chip">reproducible pipeline</li>
+          </ul>
+          <p class="why"><b>Why it matters</b>A risk model is only useful if its outputs can be tested across changing economic conditions.</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://github.com/yullieyang/cre_stress_test">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P4 -->
+      <article class="pcard">
+        <div class="pcard-media">
+          <!-- History + forecast with confidence band -->
+          <svg viewBox="0 0 320 150" role="img" aria-label="Historical series with forecast and confidence band">
+            <line x1="40" y1="120" x2="300" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <line x1="40" y1="20" x2="40" y2="120" stroke="#DBD6CB" stroke-width="1"/>
+            <path d="M190,70 L300,44 L300,96 L190,86 Z" fill="#B4552E" fill-opacity="0.10"/>
+            <polyline points="40,92 70,84 100,88 130,72 160,78 190,64" fill="none" stroke="#4A4640" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="190,64 240,58 300,50" fill="none" stroke="#B4552E" stroke-width="2.4" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="190" y1="20" x2="190" y2="120" stroke="#DBD6CB" stroke-width="1" stroke-dasharray="2 3"/>
+            <text x="90" y="140" font-family="ui-monospace,monospace" font-size="9" fill="#928D82">history</text>
+            <text x="228" y="140" font-family="ui-monospace,monospace" font-size="9" fill="#B4552E">8-qtr forecast</text>
+          </svg>
+        </div>
+        <div class="pcard-body">
+          <p class="cat">Macro Forecasting</p>
+          <h3>R Macro Trade &amp; Commodity Forecast</h3>
+          <p class="evals">Macro, trade, and commodity indicators built from FRED data in a reproducible R pipeline.</p>
+          <ul class="chips">
+            <li class="chip">FRED</li>
+            <li class="chip">ARIMA</li>
+            <li class="chip">distributed-lag regression</li>
+            <li class="chip">Quarto</li>
+            <li class="chip">GitHub Actions</li>
+          </ul>
+          <p class="why"><b>Why it matters</b>Connects the macro-policy side of my background to versioned, reproducible analytical tooling.</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://github.com/yullieyang/r-macro-trade-commodity-forecast">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              View on GitHub
             </a>
           </div>
         </div>
       </article>
 
     </div>
-  </section>
 
-  <section>
-    <h2>More work</h2>
-    <div class="projects">
-
-      <article class="project">
-        <span class="tag">Applied AI research</span>
-        <h3><a href="https://github.com/yullieyang/agentic-ai-evaluation-platform">agentic-ai-evaluation-platform</a></h3>
-        <p>A reproducible study of LLM-based QA agents on synthetic model-monitoring anomaly review: 15 labelled scenario types, transparent feature engineering and a deterministic rule baseline, a schema-constrained agent with retry&nbsp;/&nbsp;validation, an optional second-pass reviewer agent, four prompt conditions, and an evaluation suite spanning precision&nbsp;/&nbsp;recall, confidence calibration (ECE, Brier), unsupported-claim analysis, and paired statistical testing (McNemar, paired permutation, Benjamini–Hochberg). Includes a Streamlit research dashboard and runs fully offline via a deterministic mock provider; 54 passing tests.</p>
-        <span class="stack">Python · pydantic · scikit-learn · plotly · Streamlit · evaluation</span>
-      </article>
-
-      <article class="project">
-        <span class="tag">Product experimentation</span>
-        <h3><a href="https://github.com/yullieyang/product-ab-experiment">product-ab-experiment</a></h3>
-        <p>End-to-end A/B test on 100K users: defines a North Star metric (7-day retention) and guardrails, runs a sample-ratio-mismatch (SRM) trust check, a two-proportion z-test (+0.84&nbsp;pp, p&nbsp;&lt;&nbsp;0.001), power&nbsp;/&nbsp;MDE analysis, CUPED variance reduction, and Bonferroni-corrected segmentation — ending in a ship&nbsp;/&nbsp;no-ship decision memo. ARIMA forecast for metric monitoring. Reproducible synthetic data with an embedded ground-truth effect.</p>
-        <span class="stack">Python · statsmodels · A/B testing · CUPED · experimentation</span>
-      </article>
-
-      <article class="project">
-        <span class="tag">Macro forecasting</span>
-        <h3><a href="https://github.com/yullieyang/r-macro-trade-commodity-forecast">r-macro-trade-commodity-forecast</a></h3>
-        <p>Reproducible R pipeline pulling 13 FRED macro&nbsp;/&nbsp;trade&nbsp;/&nbsp;commodity series into a quarterly panel with implicit trade deflators and terms of trade. 8-quarter <code>auto.arima</code> forecasts for net exports, real GDP, and WTI; distributed-lag exchange-rate pass-through regression on U.S. trade prices. CI + Quarto Pages dashboard.</p>
-        <span class="stack">R · forecast · tidyverse · GitHub Actions · Quarto</span>
-      </article>
-
-      <article class="project">
-        <span class="tag">AI / LLM workflows</span>
-        <h3><a href="https://github.com/yullieyang/llm-research-workflow-assistant">llm-research-workflow-assistant</a></h3>
-        <p>Prompt templates, sample outputs, and a human-in-the-loop checklist for using AI coding tools responsibly in recurring research workflows — data QA, code review, brief review, documentation drafting. CLAUDE.md codifies model behavior.</p>
-        <span class="stack">Markdown · Python · prompt engineering · responsible AI</span>
-      </article>
-
-      <article class="project">
-        <span class="tag">Stress testing</span>
-        <h3><a href="https://github.com/yullieyang/cre_stress_test">cre_stress_test</a></h3>
-        <p>Portfolio-demo stress-testing workflow on 100% public data (FRED + Google Mobility + Boston Zoning). Python package + R&nbsp;/&nbsp;auto.arima companion + SQLAlchemy persistence + Streamlit dashboard. pytest + CI. Personal project; does not reflect any employer's internal data or models.</p>
-        <span class="stack">Python · scikit-learn · SQLAlchemy · Streamlit · R</span>
-      </article>
-
-      <article class="project">
-        <span class="tag">Applied LLM tooling</span>
-        <h3><a href="https://github.com/yullieyang/cardnews">cardnews</a></h3>
-        <p>Claude API + Puppeteer pipeline that renders a topic into a 10-slide 1080×1080 visual deck. Schema-constrained model output, deterministic per-run artifacts, explicit human-review framing.</p>
-        <span class="stack">Node.js · Anthropic SDK · Puppeteer</span>
-      </article>
-
+    <div class="more-strip">
+      <div class="more-item">
+        <a href="https://github.com/yullieyang/llm-research-workflow-assistant">llm-research-workflow-assistant</a>
+        <p>Prompt templates and a human-in-the-loop checklist for using AI coding tools responsibly in recurring research work.</p>
+      </div>
+      <div class="more-item">
+        <a href="https://github.com/yullieyang">More on GitHub →</a>
+        <p>Coursework and earlier work: <a href="housingstarts.html">housing-starts forecast</a>, <a href="employeeattirtionprediction.html">attrition prediction</a>.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>How I use AI tools</h2>
-    <div class="ai-note">
-      <p>I treat AI coding tools as collaborators on boilerplate, refactoring, and documentation — <strong>not</strong> as substitutes for analyst judgment. Every repo that uses an LLM in its workflow includes a <code>CLAUDE.md</code> defining how the model should behave, a clear human-review step before outputs are shared, and explicit limitations of what the AI-assisted output represents.</p>
+<!-- ============ HIGH-STAKES ENVIRONMENTS ============ -->
+<section class="section band" id="environments">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Where the work has been</p>
     </div>
-  </section>
+    <p class="lead">I've worked across policy, federal analytics, and private-sector risk — environments where an analytical output has to be <span class="hl">reproducible, explainable, and ready to stand behind a decision.</span></p>
+    <div class="grid-3">
+      <div class="env">
+        <p class="org">Federal Reserve Board</p>
+        <h3>Policy environment</h3>
+        <p>Macro and regulatory analysis where conclusions inform policy, so every step has to be traceable back to its evidence.</p>
+      </div>
+      <div class="env">
+        <p class="org">Guidehouse</p>
+        <h3>Federal analytics</h3>
+        <p>Multi-source financial data and early LLM / RAG evaluation, under compliance constraints and formal documentation.</p>
+      </div>
+      <div class="env">
+        <p class="org">CoStar Group</p>
+        <h3>Private-sector risk</h3>
+        <p>Credit-risk models under stress testing, monitoring, and release review before their outputs reach a decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <h2>Toolbox</h2>
-    <dl class="toolbox">
-      <dt>Languages</dt>
-      <dd>Python, R, SQL</dd>
+<!-- ============ TOOLBOX ============ -->
+<section class="section" id="toolbox">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Toolbox</p>
+      <h2>Methods and tools I work with</h2>
+    </div>
+    <div class="tools">
+      <div class="tool">
+        <h3>Languages</h3>
+        <ul class="chips"><li class="chip">Python</li><li class="chip">SQL</li><li class="chip">R</li></ul>
+      </div>
+      <div class="tool">
+        <h3>AI / LLM Evaluation</h3>
+        <ul class="chips"><li class="chip">RAG evaluation</li><li class="chip">LLM evaluation</li><li class="chip">agent workflows</li><li class="chip">prompt experimentation</li><li class="chip">human-in-the-loop review</li><li class="chip">retrieval-quality analysis</li></ul>
+      </div>
+      <div class="tool">
+        <h3>Analytics &amp; Experimentation</h3>
+        <ul class="chips"><li class="chip">A/B testing</li><li class="chip">CUPED</li><li class="chip">SRM checks</li><li class="chip">power / MDE</li><li class="chip">metric design</li><li class="chip">forecasting</li></ul>
+      </div>
+      <div class="tool">
+        <h3>Risk &amp; Model Validation</h3>
+        <ul class="chips"><li class="chip">stress testing</li><li class="chip">sensitivity analysis</li><li class="chip">model monitoring</li><li class="chip">credit-risk analytics</li></ul>
+      </div>
+      <div class="tool">
+        <h3>Engineering</h3>
+        <ul class="chips"><li class="chip">Git</li><li class="chip">GitHub Actions</li><li class="chip">Streamlit</li><li class="chip">Quarto</li><li class="chip">pytest</li><li class="chip">SQLAlchemy</li></ul>
+      </div>
+      <div class="tool">
+        <h3>Visualization</h3>
+        <ul class="chips"><li class="chip">Tableau</li><li class="chip">Power BI</li><li class="chip">Streamlit dashboards</li><li class="chip">Quarto</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <dt>Data &amp; infra</dt>
-      <dd>FRED, SQLite&nbsp;/&nbsp;PostgreSQL&nbsp;/&nbsp;SQLAlchemy, AWS, Azure, Tableau, Power BI</dd>
-
-      <dt>Engineering</dt>
-      <dd>Git, GitHub Actions, R Markdown&nbsp;/&nbsp;Quarto, Streamlit, <code>make</code>-driven pipelines, pytest, testthat</dd>
-
-      <dt>Modeling</dt>
-      <dd><code>auto.arima</code>, distributed-lag regression, classification under class imbalance, SHAP explainability</dd>
-
-      <dt>Experimentation</dt>
-      <dd>A/B testing, North Star&nbsp;/&nbsp;guardrail metric design, power&nbsp;/&nbsp;MDE analysis, SRM checks, CUPED variance reduction, segmentation with multiple-comparison correction</dd>
-
-      <dt>AI / LLM</dt>
-      <dd>LLM &amp; RAG evaluation, agentic workflows, prompt experimentation, human-in-the-loop systems, retrieval-quality analysis, LangChain, LangGraph, Claude API, Claude Code</dd>
-    </dl>
-  </section>
-
-  <section>
-    <h2>Notes</h2>
-    <p style="color: var(--muted); font-size: 0.92rem; margin: 0 0 0.6rem;">Short methodology notes on the techniques behind the portfolio repos.</p>
-    <ul style="list-style: none; padding: 0; margin: 0;">
-      <li style="margin-bottom: 0.4rem;">
-        <a href="notes/passthrough-what-it-says.html">Cumulative exchange-rate pass-through: what the coefficient says and what it doesn't</a>
-        <span style="color: var(--muted); font-size: 0.88rem;"> — what a distributed-lag pass-through regression actually estimates, and what it cannot.</span>
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p class="contact">
-      <a href="mailto:yullieyang@gmail.com">yullieyang@gmail.com</a>
-      <a href="https://github.com/yullieyang">github.com/yullieyang</a>
-      <a href="https://linkedin.com/in/yullie-yang">linkedin.com/in/yullie-yang</a>
-      <a href="files/YullieYangResume.pdf">Resume (PDF)</a>
-    </p>
-  </section>
-
-</main>
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center;">Get in touch</p>
+    <h2>Focused on Bay Area roles in AI evaluation, model risk, and safety analytics</h2>
+    <p>I'm relocating to the San Francisco Bay Area and actively looking for teams building the discipline for deciding when a model or metric can be trusted. If that's you, let's talk.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:yullieyang@gmail.com">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="M2 4l6 4.5L14 4"/></svg>
+        Email me
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/yullieyang">GitHub</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/yullie-yang">LinkedIn</a>
+      <a class="btn btn-ghost" href="files/YullieYangResume.pdf">Résumé (PDF)</a>
+    </div>
+    <p class="loc">Based in Boston · relocating to the San Francisco Bay Area</p>
+  </div>
+</section>
 
 <footer>
-  <span>&copy; <span id="year"></span> Yullie Yang</span>
-  <span><a href="https://github.com/yullieyang/yullieyang.github.io">View source</a></span>
+  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:0.5rem 1.4rem; justify-content:space-between; align-items:center; width:100%;">
+    <span>&copy; <span id="year"></span> Yullie Yang</span>
+    <span class="foot-links">
+      <a href="notes/passthrough-what-it-says.html">Methodology notes</a>
+      <a href="files/YullieYangResume.pdf">Résumé</a>
+      <a href="https://github.com/yullieyang/yullieyang.github.io">View source</a>
+    </span>
+  </div>
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
