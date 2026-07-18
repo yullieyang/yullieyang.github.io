@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CardNews AI — Case Study | Yullie Yang</title>
+  <meta name="description" content="Case study: a Claude-powered CLI tool that turns a topic into a structured 10-slide visual briefing, rendered by a deterministic Puppeteer pipeline into a reviewable PNG deck.">
+  <link rel="canonical" href="https://yullieyang.github.io/projects/cardnews.html">
+  <meta property="og:title" content="CardNews AI — Case Study">
+  <meta property="og:description" content="A Claude-powered CLI tool that turns a topic into a structured 10-slide visual briefing, rendered by a deterministic Puppeteer pipeline.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B4552E'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23FBFAF7' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/site.css">
+  <style id="page-specific"></style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <span class="brand"><a href="../index.html" style="color:inherit;">Yullie&nbsp;Yang<span class="dot">.</span></a></span>
+    <div class="nav-links">
+      <a href="../index.html#featured-genai">Selected Work</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#toolbox">Toolbox</a>
+      <a class="nav-cta" href="../files/YullieYangResume.pdf">Résumé</a>
+    </div>
+  </div>
+</nav>
+
+<header class="case-header">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#featured-genai">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to portfolio
+    </a>
+    <p class="eyebrow">Case study · Generative content workflow</p>
+    <h1>CardNews AI</h1>
+    <p class="outcome">A Claude-powered CLI tool that turns a single topic into a schema-validated 10-slide visual briefing — Claude drafts the slide content as JSON, a bounded correction retry catches malformed output, and a deterministic Puppeteer rendering pipeline turns it into a reviewable 1080×1080 PNG deck plus a thumbnail grid.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/yullieyang/cardnews">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View GitHub Repo
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/yullieyang/cardnews/tree/main/output/microplastics-everywhere-what-we-know">View Output</a>
+    </div>
+  </div>
+</header>
+
+<section class="case-section">
+  <div class="wrap" style="max-width:760px;">
+
+    <h2>Problem</h2>
+    <p>Turning a topic into a visual briefing normally means doing every step by hand: framing the topic, structuring it into a sequence of slides, drafting copy for each one, formatting it consistently, rendering it to an image, and reviewing the result — one slide at a time, ten times over.</p>
+
+    <h2>Intended user</h2>
+    <p>Designed for a user who needs to turn a topic into a consistent visual briefing without manually drafting, structuring, formatting, and rendering every slide from scratch. No real marketing or communications team has adopted this — it's a working demonstration of the pipeline, run 36 times on real topics during development.</p>
+
+    <h2>Workflow before the tool</h2>
+    <p class="muted">No measured time savings are claimed here. Qualitatively: a user would research the topic, draft ten slides' worth of copy, decide on sequencing and emphasis, format each slide by hand or in a design tool, export each one, and assemble a set for review — all as separate manual steps.</p>
+
+    <h2>What I built</h2>
+    <ul>
+      <li>A CLI entry point (<code>scripts/index.js</code>) supporting generate+render (default), generate-only, and a <code>--render</code> command that re-renders an existing valid JSON file without calling Claude again.</li>
+      <li>A Claude API call (<code>scripts/generator.js</code>, model <code>claude-sonnet-4-6</code>) that produces a 10-slide JSON structure, plus optional audience/tone/language/key-point controls.</li>
+      <li>Explicit deck-schema validation (<code>scripts/schema.js</code>) — exact slide count, slide types by position, required fields, length limits — and one bounded correction retry when the response is schema-invalid, with the validation errors fed back as a targeted correction prompt.</li>
+      <li>Three distinct, distinguishable failure modes with their own exit codes: a Claude API error, unparseable JSON, and a schema-invalid deck — none of them an uncaught crash.</li>
+      <li>A rendering pipeline (<code>scripts/renderer.js</code>) that stages a render in a temporary directory, validates it completely, and only then swaps it into the real output directory — so a failed or partial render can never corrupt a prior successful one. This also fixed a real bug: Puppeteer's browser previously wasn't closed on a mid-render error, leaking a headless process.</li>
+      <li>Run metadata (<code>run-metadata.json</code>) and a human-review checklist printed after every successful run.</li>
+      <li>33 automated tests (Node's built-in test runner) covering schema validation, generation error handling via an injectable fake client, CLI argument parsing, and real Puppeteer rendering — all offline, no API key required.</li>
+      <li>One representative example run committed (<code>output/microplastics-everywhere-what-we-know/</code>); 35 other example decks generated during development were pruned from the tracked tree to keep the repository focused.</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <div class="map" style="margin: 1.5rem 0;">
+      <div class="map-node"><h3>Topic</h3><p>Free-text CLI argument, e.g. a one-line subject.</p></div>
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+      <div class="map-node"><h3>Claude API</h3><p>Drafts a 10-slide JSON structure in one call.</p></div>
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+      <div class="map-node"><h3>HTML/CSS + Puppeteer</h3><p>Each slide rendered to a 1080×1080 PNG.</p></div>
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+      <div class="map-node is-target"><h3>Human review</h3><p>PNG deck + thumbnail grid reviewed before any use.</p></div>
+    </div>
+
+    <h2>Where Claude acts, where deterministic logic acts</h2>
+    <div class="kv-grid">
+      <div class="kv-cell"><span class="k">LLM-dependent</span><span class="v" style="font-size:0.95rem;">Drafting the 10-slide JSON content from a topic (one call, plus at most one schema-correction retry)</span></div>
+      <div class="kv-cell"><span class="k">Deterministic, no LLM involved</span><span class="v" style="font-size:0.95rem;">Deck-schema validation · HTML/CSS template selection · Puppeteer rendering · staged-directory swap · thumbnail-grid composition</span></div>
+    </div>
+    <p class="muted">Exactly one step in the whole pipeline touches a language model per run — drafting the JSON. Every step after that (validating its shape, choosing which of the 3 templates to render, producing the PNGs, assembling the grid) is plain deterministic code, which is why <code>--render</code> can redo all of it from a saved JSON file with no API call and no cost.</p>
+
+    <h2>Inputs and outputs</h2>
+    <p>CLI command:</p>
+    <pre><code>npm install
+export ANTHROPIC_API_KEY=...
+npm start -- "Microplastics are everywhere"</code></pre>
+    <p>Real generated output (<code>output/microplastics-everywhere-what-we-know/cards.json</code>, first two of ten slides):</p>
+    <pre><code>{
+  "title": "Microplastics Are Everywhere",
+  "theme_color": "#1A6B8A",
+  "slides": [
+    {
+      "slide_number": 1,
+      "type": "title",
+      "heading": "Microplastics Are Everywhere",
+      "body": "From the deep ocean to human blood — what science
+               knows, what it fears, and what comes next"
+    },
+    {
+      "slide_number": 2,
+      "type": "content",
+      "heading": "What Are Microplastics?",
+      "body": "Microplastics are plastic fragments smaller than 5mm.
+               They come from degrading larger plastics, synthetic
+               fibers in laundry, and microbeads in cosmetics."
+    }
+    // ... 8 more slides
+  ]
+}</code></pre>
+    <p>The corresponding rendered slides:</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <figure class="case-shot">
+        <img src="../images/cardnews/slide-01.png" alt="Rendered title slide: Microplastics Are Everywhere, editorial layout with serif headline and numeral watermark">
+        <figcaption>Slide 1 — title slide.</figcaption>
+      </figure>
+      <figure class="case-shot">
+        <img src="../images/cardnews/slide-02.png" alt="Rendered content slide: What Are Microplastics, editorial layout with a numbered circle badge, serif headline, lead/support body text, and a numeral watermark">
+        <figcaption>Slide 2 — content slide.</figcaption>
+      </figure>
+    </div>
+    <figure class="case-shot">
+      <img src="../images/cardnews/diary-shot.png" alt="5 by 2 thumbnail grid of all ten rendered slides for the microplastics topic, editorial layout with serif headlines and numeral watermarks">
+      <figcaption>Full 5×2 thumbnail grid (<code>diary-shot.png</code>) — this is the fast-review artifact a user would look at first.</figcaption>
+    </figure>
+
+    <h2>Tech stack</h2>
+    <ul class="chips">
+      <li class="chip">Node.js (ESM)</li>
+      <li class="chip">@anthropic-ai/sdk</li>
+      <li class="chip">Claude Sonnet 4.6</li>
+      <li class="chip">Puppeteer</li>
+      <li class="chip">HTML/CSS templates</li>
+    </ul>
+
+    <h2>How output correctness is checked (and what isn't)</h2>
+    <ul>
+      <li>Deck schema validation (<code>scripts/schema.js</code>) rejects: wrong slide count, an unsupported or out-of-position slide <code>type</code>, missing/empty <code>heading</code> or <code>body</code>, headings over 200 characters, bodies over 800 characters, an invalid <code>theme_color</code>, and any unexpected field.</li>
+      <li>A schema-invalid response gets exactly one correction turn — the model is shown only the specific validation errors — never an unbounded retry loop.</li>
+      <li>Rendering validates its own output before it's kept: exact file count, no empty PNGs, no duplicates, a non-empty thumbnail grid — verified by a test that forces a mid-render failure and confirms a prior successful render is left byte-identical afterward.</li>
+      <li>None of this validates <i>facts</i> — schema and rendering validation confirm the deck's shape and files are correct, not that any claim in the slide copy is true. That remains entirely a human-review responsibility.</li>
+    </ul>
+
+    <h2>Design decisions</h2>
+    <ul>
+      <li>Model output is constrained to JSON, not free text, because the renderer needs a stable shape to build HTML from.</li>
+      <li>JSON is saved before rendering so a deck is inspectable and re-renderable (<code>--render</code>) without a Claude call, and so a rendering failure never loses the generated content.</li>
+      <li>Rendering stages to a temporary directory before swapping in: during implementation, a render failing partway through would leave a directory with fewer files than a previous successful run, silently corrupting it — staging and validating before the swap fixes that.</li>
+      <li>One bounded retry, not an unlimited loop: an open-ended retry trades a clear failure for an unclear one.</li>
+      <li>One representative sample deck is committed rather than many, to keep the repository focused rather than filled with bulk-generated filler.</li>
+    </ul>
+    <div class="callout neutral"><b>Correction from the source README:</b> the repository's README and <code>CLAUDE.md</code> previously described the slide templates as having a "gradient background, centered white text" — stale language predating an earlier redesign. The templates actually in <code>templates/styles.css</code>, and the slides rendered above, use a solid white background with near-black heading text (title/content slides) and a solid theme-color background (closing slide only). Both the README and this page now describe what's actually rendered.</div>
+
+    <h2>Adoption &amp; documentation</h2>
+    <p>Quick start:</p>
+    <pre><code>npm install
+export ANTHROPIC_API_KEY=...
+npm test                              # 33 tests, no API key needed
+npm start -- "&lt;topic&gt;"
+npm start -- --render output/microplastics-everywhere-what-we-know/cards.json</code></pre>
+    <p>Each run writes <code>output/&lt;topic-slug&gt;/</code> containing <code>cards.json</code>, <code>slide-01.png</code> through <code>slide-10.png</code>, <code>diary-shot.png</code>, and <code>run-metadata.json</code> — shown above for one real example. The <code>--render</code> command re-renders an existing valid JSON file at no API cost.</p>
+
+    <h2>Responsible use</h2>
+    <p>Quoted directly from the project's own README:</p>
+    <ul>
+      <li><b>Drafts only.</b> Slide copy produced by the Claude API is a starting point for a human author to edit. Do not publish a deck without reading every line.</li>
+      <li><b>No proprietary or confidential topics.</b> The topic you pass becomes part of the prompt sent to the API. Do not pass non-public material.</li>
+      <li><b>Source-check every factual claim.</b> The model can produce confident, plausible, and incorrect statements. Verify dates, statistics, and names against authoritative sources before publishing.</li>
+      <li><b>Be explicit that AI was used.</b> When publishing a deck, label it as AI-assisted and credit the human author who reviewed and edited it.</li>
+      <li><b>Rate limits and cost.</b> Each run makes one API call to a chat model plus 10 Puppeteer renders.</li>
+    </ul>
+
+    <h2>Limitations</h2>
+    <ul>
+      <li>No automated fact-checking of any kind; every factual claim in generated copy depends entirely on human source-checking.</li>
+      <li>Only three fixed visual layouts (title / content / closing) — customization requires editing the CSS templates directly.</li>
+      <li>Requires an Anthropic API key and incurs API and rendering cost per generation run (<code>--render</code> has no API cost); no hosted demo exists.</li>
+      <li>The correction retry is bounded to one attempt — a response that's schema-invalid twice in a row fails the run rather than retrying further.</li>
+      <li><b>The live Claude generation path was not executed against the real API during this development pass</b> — no API key was available. Verification instead used the real rendering pipeline against a previously-committed, real Claude-generated example, plus 33 tests using an injectable fake client for generation and real Puppeteer for rendering. This is not the same as a live generation run.</li>
+    </ul>
+
+    <h2>What I'd improve next</h2>
+    <ul>
+      <li>Add citation or source-linking support so factual claims are easier to verify.</li>
+      <li>Add more visual templates beyond the current three layouts.</li>
+      <li>Support an editable export format (e.g. layered assets) instead of flattened PNGs only.</li>
+      <li>Execute a live generation run against the real Claude API once a key is available, and commit that run's artifacts labeled explicitly as a live sample.</li>
+    </ul>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:0.5rem 1.4rem; justify-content:space-between; align-items:center; width:100%;">
+    <span>&copy; <span id="year"></span> Yullie Yang</span>
+    <span class="foot-links">
+      <a href="../index.html">Back to portfolio</a>
+      <a href="https://github.com/yullieyang/cardnews">GitHub repo</a>
+    </span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

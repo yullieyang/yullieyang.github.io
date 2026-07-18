@@ -9,3 +9,6 @@ Thumbs.db
 
 # iCloud placeholders
 *.icloud
+
+# Local-only application materials — never public, never committed
+application-materials/

@@ -1,17 +1,19 @@
 # yullieyang.github.io
 
-Personal portfolio site for **Yullie Yang** — quantitative analyst building
-reproducible financial / economic research workflows and AI-assisted QA /
-documentation systems.
+Personal portfolio site for **Yullie Yang** — an Applied AI Builder with a
+quantitative analytics background, building AI agents, workflow
+automations, and evaluation-first tools alongside reproducible financial /
+economic research workflows.
 
 **Live site:** <https://yullieyang.github.io>
 
 ## Architecture
 
-The landing page is a single self-contained `index.html` with embedded CSS
-— no Jekyll templating, no R Markdown render step, no external CSS
-framework. GitHub Pages serves it directly. A `.nojekyll` file disables
-Jekyll processing across the site.
+The landing page and project case-study pages are plain static HTML
+sharing one stylesheet at `assets/site.css` — no Jekyll templating, no R
+Markdown render step, no external CSS framework, no build step. GitHub
+Pages serves everything directly. A `.nojekyll` file disables Jekyll
+processing across the site.
 
 Earlier coursework pages (housing starts, attrition, visualization series)
 were rendered from `.Rmd` to `.html` in a previous R Markdown setup. The
@@ -21,6 +23,21 @@ build path anymore.
 
 ## Featured GitHub repos
 
+Featured GenAI / LLM solutions (each with a case-study page under `projects/`):
+
+- [agentic-ai-evaluation-platform](https://github.com/yullieyang/agentic-ai-evaluation-platform)
+  — LLM-based QA agent + reviewer agent for model-monitoring anomaly review,
+  with schema-validated findings, calibration/failure analysis, and a
+  Streamlit dashboard. Canonical results are from an offline mock provider.
+- [cardnews](https://github.com/yullieyang/cardnews)
+  — Claude-powered CLI that turns a topic into a structured 10-slide JSON
+  briefing, rendered by a deterministic Puppeteer pipeline into a reviewable
+  PNG deck.
+
+Selected quantitative & applied AI work:
+
+- [product-ab-experiment](https://github.com/yullieyang/product-ab-experiment)
+  — end-to-end experimentation case study (SRM, power/MDE, CUPED, guardrails).
 - [r-macro-trade-commodity-forecast](https://github.com/yullieyang/r-macro-trade-commodity-forecast)
   — reproducible R macro / trade / commodity pipeline with FX pass-through.
 - [cre_stress_test](https://github.com/yullieyang/cre_stress_test)
@@ -28,10 +45,10 @@ build path anymore.
 - [llm-research-workflow-assistant](https://github.com/yullieyang/llm-research-workflow-assistant)
   — responsible AI workflow prototype for research QA and documentation.
 
-## Editing the landing page
+## Editing the site
 
-Open `index.html` in any editor. The CSS is inline in a single `<style>`
-block at the top; the content is plain HTML below it. To preview locally:
+Open `index.html` or a page under `projects/` in any editor. Shared styles
+live in `assets/site.css`; content is plain HTML. To preview locally:
 
 ```bash
 python3 -m http.server 8080
@@ -42,11 +59,16 @@ python3 -m http.server 8080
 
 ```
 yullieyang.github.io/
-├── index.html                       # Landing page (self-contained)
+├── index.html                       # Landing page
+├── projects/
+│   ├── agentic-ai-evaluation-platform.html  # Featured GenAI case study
+│   └── cardnews.html                        # Featured GenAI case study
+├── assets/site.css                  # Shared stylesheet
 ├── .nojekyll                        # Disable Jekyll processing
 ├── README.md
 ├── files/                           # Resume PDF + downloadable artifacts
-├── images/                          # profile_pic.jpg + figure assets
+├── images/                          # profile_pic.jpg + figure assets + agentic/ + cardnews/ screenshots
+├── application-materials/           # Local-only, gitignored — company-specific application notes
 ├── housingstarts.html               # Coursework: rendered HTML
 ├── employeeattirtionprediction.html # Coursework: rendered HTML
 ├── visualization{1,2,3}.html        # Coursework: rendered HTML

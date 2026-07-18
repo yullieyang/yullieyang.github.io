@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentic AI Evaluation Platform — Case Study | Yullie Yang</title>
+  <meta name="description" content="Case study: an evidence-grounded QA agent and distinct reviewer agent that review model-monitoring anomalies, with schema-validated findings, Claude tool use, deterministic validation, an explicit escalation policy, and a human-review dashboard. Canonical results are from an offline mock provider.">
+  <link rel="canonical" href="https://yullieyang.github.io/projects/agentic-ai-evaluation-platform.html">
+  <meta property="og:title" content="Agentic AI Evaluation Platform — Case Study">
+  <meta property="og:description" content="An evidence-grounded QA agent and reviewer agent that review model-monitoring anomalies, with Claude tool use, deterministic validation, and explicit human escalation.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B4552E'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23FBFAF7' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/site.css">
+  <style id="page-specific"></style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <span class="brand"><a href="../index.html" style="color:inherit;">Yullie&nbsp;Yang<span class="dot">.</span></a></span>
+    <div class="nav-links">
+      <a href="../index.html#featured-genai">Selected Work</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#toolbox">Toolbox</a>
+      <a class="nav-cta" href="../files/YullieYangResume.pdf">Résumé</a>
+    </div>
+  </div>
+</nav>
+
+<header class="case-header">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#featured-genai">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to portfolio
+    </a>
+    <p class="eyebrow">Case study · AI evaluation · Agentic workflow</p>
+    <h1>Agentic AI Evaluation Platform</h1>
+    <p class="outcome">An evidence-grounded analytical review prototype that compares single-shot and tool-using workflows across synthetic model-monitoring cases. Schema-constrained findings cite traceable evidence IDs, a distinct reviewer agent checks them, deterministic validation and an explicit escalation policy decide what needs a human — evaluated end to end on 600 synthetic cases with 127 passing tests and a 9-page Streamlit dashboard.</p>
+    <div class="callout amber"><b>Mock-provider disclosure:</b> canonical results throughout this page come from a deterministic offline mock provider, used to evaluate architecture, traceability, validation, and workflow behavior. They are not measurements of a production model or deployed business system. The Anthropic tool-use loop is implemented, SDK-verified, and end-to-end unit-tested with a stubbed client, but it has not yet been executed against the live Claude API.</div>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/yullieyang/agentic-ai-evaluation-platform">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View GitHub Repo
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/yullieyang/agentic-ai-evaluation-platform/tree/main/outputs">View Output</a>
+    </div>
+  </div>
+</header>
+
+<section class="case-section">
+  <div class="wrap" style="max-width:760px;">
+
+    <h2>Problem</h2>
+    <p>Reviewing model-monitoring anomalies is a judgment-heavy, easy-to-get-wrong task. A reviewer has to separate true anomalies from ordinary noise, recognize seasonality and recovery effects, notice when a metric's definition changed rather than its underlying behavior, assemble the evidence that actually supports a conclusion, write the finding up consistently, and leave a clear record of who decided what.</p>
+
+    <h2>Intended user</h2>
+    <p>Designed as a prototype for analysts or model reviewers who need to evaluate monitoring anomalies, trace findings back to specific evidence, compare architectures, and retain a clear human decision trail. No real analyst has used it in production — it's a working demonstration of the workflow, not a deployed tool.</p>
+
+    <h2>Workflow before the tool</h2>
+    <p class="muted">No measured baseline is claimed here. Qualitatively, this kind of review tends to be manual and inconsistent: an analyst reads a metric history, applies informal heuristics for what counts as an anomaly, and writes up a finding with no standard way to trace which evidence was used, compare one reviewer's judgment to another's, or check it against a transparent rule.</p>
+
+    <h2>What I built</h2>
+    <ul>
+      <li>A synthetic data generator producing 600 cases across 8 fictional models, 15 documented scenario types, and 4 difficulty levels — with anomaly labels deliberately not recoverable from any single field.</li>
+      <li>An <b>evidence store</b> that restructures each case's data into stable, ID-addressable items (metric snapshot, historical baseline, validation rule, release notes, segment comparison, seasonality/recovery indicators, triggered deterministic checks) — so a finding can cite exactly which evidence supports it, and that citation can be checked, not just trusted.</li>
+      <li>Seven <b>evidence-retrieval tools</b> (list/get by kind, get-by-ID), each argument-validated and logged, bounded to 6 calls per attempt.</li>
+      <li>A real <b>Claude tool-use loop</b>, verified against the installed Anthropic SDK's actual type shapes and end-to-end unit-tested with a stubbed client — plus a deterministic mock-mode equivalent that drives the same tool executor against the same evidence store.</li>
+      <li>Two architectures run on identical cases: <b>single-shot</b> (evidence pre-rendered into one prompt) and <b>agentic/tool-using</b> (evidence retrieved on demand) — a controlled comparison, not a quality contest (see Evaluation below).</li>
+      <li>An independent <b>reviewer agent</b> with a genuinely distinct prompt and role — it checks the first agent's evidence support and severity, it doesn't repeat the task.</li>
+      <li><b>Deterministic output validation</b> — 7 checks independent of any LLM: schema conformance, evidence-ID existence, numeric consistency, high-severity-requires-review, unsupported causal wording, reviewer compatibility, tool-call limit.</li>
+      <li>An explicit, single-function <b>escalation policy</b> covering 9 possible triggers (severity, confidence, abstention, insufficient evidence, unsupported claims, non-approve review, failed validation, excessive tool calls).</li>
+      <li>127 pytest tests, entirely offline — verified by uninstalling <code>anthropic</code>/<code>openai</code> and re-running the full suite.</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <div class="map" style="margin: 1.5rem 0;">
+      <div class="map-node"><h3>Evidence store</h3><p>Stable, ID-addressable items per case — pre-rendered (single-shot) or retrieved via tools (agentic).</p></div>
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+      <div class="map-node"><h3>QA agent</h3><p>Schema-validated finding citing specific evidence_ids.</p></div>
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+      <div class="map-node"><h3>Reviewer agent</h3><p>Checks evidence support, severity, unsupported claims.</p></div>
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+      <div class="map-node"><h3>Deterministic validation</h3><p>7 checks: evidence IDs exist, numeric consistency, tool-call limit, and more.</p></div>
+      <div class="map-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0l-5-5m5 5l-5 5"/></svg></div>
+      <div class="map-node is-target"><h3>Escalation policy</h3><p>Auto-approve or human review, with the exact reason recorded.</p></div>
+    </div>
+
+    <h2>Where the LLM acts, where deterministic logic acts</h2>
+    <div class="kv-grid">
+      <div class="kv-cell"><span class="k">LLM-dependent</span><span class="v" style="font-size:0.95rem;">QA agent's finding · reviewer agent's check · (agentic only) deciding which evidence tools to call</span></div>
+      <div class="kv-cell"><span class="k">Deterministic, no LLM involved</span><span class="v" style="font-size:0.95rem;">Evidence store &amp; retrieval tools · schema validation · 7 output-validation checks · rule-based baseline · escalation policy</span></div>
+    </div>
+    <p class="muted">Only two calls in the whole pipeline touch a language model per case — the QA agent's finding and the reviewer's check. Everything downstream of those two calls (existence-checking evidence IDs, numeric consistency, the escalation decision) is plain code with no model involved, so it behaves identically on every run and is unit-tested without needing a model at all.</p>
+
+    <h2>Single-shot vs. agentic: what the comparison shows</h2>
+    <p>Both architectures draw from the <b>identical</b> per-case evidence — they differ only in delivery: single-shot renders it all into one prompt; agentic retrieves it via bounded tool calls. In mock mode, both conditions deliberately share the same underlying decision policy, so the comparison isolates the evidence-delivery mechanism, not decision quality.</p>
+    <div class="kv-grid">
+      <div class="kv-cell"><span class="k">Single-shot accuracy</span><span class="v">0.557</span></div>
+      <div class="kv-cell"><span class="k">Agentic accuracy</span><span class="v">0.572</span></div>
+      <div class="kv-cell"><span class="k">McNemar p-value</span><span class="v">0.503</span></div>
+      <div class="kv-cell"><span class="k">Avg. tool calls</span><span class="v">0.00 → 3.36</span></div>
+    </div>
+    <p class="muted"><b>The accuracy difference is not statistically significant (p=0.503)</b> — exactly what the controlled design predicts, since both share the same decision policy. This result should not be read as evidence that the agentic architecture improves, or degrades, model quality. What it demonstrates is that the tool-retrieval, evidence-citation, and tool-call-limit machinery all work correctly end to end under a controlled comparison. Whether a live agentic Claude run would find different or better findings than single-shot is a separate question this mock comparison cannot answer.</p>
+
+    <h2>Inputs and outputs</h2>
+    <p>The agent's response is validated against a Pydantic schema (<code>src/schemas.py</code>) with <code>extra = "forbid"</code>. Key fields, including the new <code>evidence_ids</code>:</p>
+    <pre><code>AgentFinding {
+  anomaly_detected: bool
+  severity: "none" | "low" | "medium" | "high"
+  anomaly_type: str
+  summary: str
+  observations: [str]              # facts only
+  possible_explanations: [str]     # hypotheses only, never asserted as fact
+  supporting_evidence: [EvidenceItem]
+  evidence_ids: [str]              # must reference real items — checked
+                                    # deterministically, not by the schema
+  confidence_score: float          # validated in [0, 1]
+  evidence_sufficiency: "insufficient" | "limited" | "adequate" | "strong"
+  unsupported_claim_risk: "low" | "medium" | "high"
+  requires_human_review: bool
+  abstained: bool
+  abstention_reason: str | None
+}</code></pre>
+    <p>A real logged case (<code>case_0000</code>, from <code>outputs/sample_agent_outputs.json</code> — a mock-mode run, not a live model):</p>
+    <pre><code>case_id: "case_0000"     model_id: "model_08"     metric: "score_mean"
+scenario_type: "normal_variation"
+
+pred_anomaly: false             confidence: 0.5985
+pred_severity: "none"           evidence_sufficiency: "adequate"
+unsupported_claim_risk: "low"   requires_human_review: false
+
+deterministic_validation_passed: true
+reviewer_decision: "approve"</code></pre>
+    <p class="muted">Normal variation, correctly predicted as no anomaly, validation passed, reviewer approved, no escalation — the routine case. The Screenshots section below shows one where evidence, finding, reviewer output, and escalation are all visible together for a single case.</p>
+
+    <h2>Error handling and validation</h2>
+    <ul>
+      <li><b>Schema validation (Pydantic, <code>extra = "forbid"</code>):</b> a finding missing a required field, with the wrong type, or with an unexpected extra field is rejected before it reaches any downstream step.</li>
+      <li><b>Evidence-ID existence:</b> checked against the real evidence store, not by the schema — a citation to an evidence ID that doesn't exist for that case fails validation even though the schema itself can't know that.</li>
+      <li><b>Numeric consistency:</b> a finding's stated confidence and severity are cross-checked against each other and against the evidence for internal contradictions.</li>
+      <li><b>Tool-call limit (agentic only):</b> bounded to 6 calls per attempt; hitting the limit is a validation failure, not a silent truncation.</li>
+      <li><b>Unsupported-claim detection:</b> a surface-pattern check flags causal or definitive language not backed by cited evidence — documented as an approximation, not ground truth (see Limitations).</li>
+      <li><b>What none of this catches:</b> whether a claim is factually correct. Validation confirms structure, citation existence, and internal consistency — not truth. That's exactly why the escalation policy and human review exist downstream.</li>
+    </ul>
+
+    <h2>Tech stack</h2>
+    <ul class="chips">
+      <li class="chip">Python 3.11+</li>
+      <li class="chip">Pydantic</li>
+      <li class="chip">Anthropic SDK (tool use)</li>
+      <li class="chip">pandas / numpy / scipy</li>
+      <li class="chip">Streamlit</li>
+      <li class="chip">Plotly</li>
+      <li class="chip">SQLite</li>
+      <li class="chip">pytest</li>
+    </ul>
+
+    <h2>Evaluation</h2>
+    <div class="callout amber"><b>Mock-provider disclosure:</b> the figures below are from the deterministic offline mock provider, not a live model.</div>
+    <div class="kv-grid">
+      <div class="kv-cell"><span class="k">Cases</span><span class="v">600</span></div>
+      <div class="kv-cell"><span class="k">Agent precision</span><span class="v">0.593</span></div>
+      <div class="kv-cell"><span class="k">Agent recall</span><span class="v">0.503</span></div>
+      <div class="kv-cell"><span class="k">Agent F1</span><span class="v">0.545</span></div>
+      <div class="kv-cell"><span class="k">Rule-baseline F1</span><span class="v">0.586</span></div>
+      <div class="kv-cell"><span class="k">Unsupported-claim rate</span><span class="v">0.043</span></div>
+      <div class="kv-cell"><span class="k">Schema compliance</span><span class="v">1.000</span></div>
+      <div class="kv-cell"><span class="k">Deterministic-validation pass rate</span><span class="v">0.788</span></div>
+      <div class="kv-cell"><span class="k">Escalation rate</span><span class="v">0.572</span></div>
+    </div>
+    <div class="callout neutral"><b>On the two F1 numbers above:</b> the agent's F1 (0.545) is <i>lower</i> than the rule-baseline's F1 (0.586) in this condition, and across all 16 tested conditions the agent's F1 never exceeds the baseline. The rule baseline isn't a target the agent beats — it's a reference measurement: a simple magnitude-only rule that also predicts "anomaly" on 100% of the <code>false_positive_trap</code> and <code>metric_definition_change</code> cases, where ground truth is never an anomaly. Its per-scenario F1 on those trap types is 0.000 — it looks strong only because it also gets the easier majority of cases right. Raw decision F1 is one axis among several this study evaluates, not a leaderboard between the agent and the rule.</div>
+    <p>Calibration: expected calibration error <b>0.120</b>, Brier score <b>0.261</b>.</p>
+
+    <h2>Design decisions</h2>
+    <ul>
+      <li>A deterministic, rule-based baseline runs alongside the agent on every case as a transparent reference point — never as a target the agent is judged against in isolation.</li>
+      <li>Evidence IDs are checked deterministically (against the real evidence store), not by the Pydantic schema itself, because existence-checking needs external state a single model instance can't see.</li>
+      <li><code>alert_type</code> is deliberately excluded from agent-facing evidence — it's derived 1:1 from the internal scenario type for several scenarios and would leak the ground-truth answer if ever shown to the agent.</li>
+      <li>Single-shot and agentic share one decision policy in mock mode specifically so the architecture comparison isolates evidence delivery, not decision quality.</li>
+      <li>The reviewer agent has a genuinely distinct prompt and role rather than a second call to the same task — an "independent" reviewer that repeats the same task with the same context isn't actually checking anything.</li>
+    </ul>
+
+    <h2>Adoption &amp; documentation</h2>
+    <p>Quick start (mock mode, no API key required):</p>
+    <pre><code>python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python -m pytest                     # 127 tests, entirely offline
+
+python -m src.experiment_runner      # single-shot + agentic + 20 more conditions
+python -m src.reporting              # regenerate reports/research_summary.md
+streamlit run app.py                 # 9-page dashboard shown below</code></pre>
+    <p class="muted">Live-model experiments are optional, require <code>anthropic</code> and an API key, and are never run by default.</p>
+
+    <h3>Screenshots</h3>
+    <figure class="case-shot">
+      <img src="../images/agentic/study-overview-wide.png" alt="Streamlit Study Overview page showing the 8 research questions this study answers and headline metrics for one experiment condition, mock-provider disclosure banner visible">
+      <figcaption>Study Overview — the dashboard's landing page: the 8 research questions the evaluation answers and headline metrics for whichever experiment condition is selected.</figcaption>
+    </figure>
+    <figure class="case-shot">
+      <img src="../images/agentic/review-queue.png" alt="Streamlit Review Queue page listing cases with alert type, severity, confidence, and escalation reasons, mock-provider disclosure banner visible">
+      <figcaption>Review Queue — every case with its escalation status and reasons, filterable to just what needs human review.</figcaption>
+    </figure>
+    <figure class="case-shot">
+      <img src="../images/agentic/case-review.png" alt="Streamlit Case Review page showing the experiment/model/metric/scenario/case selectors and a quarterly metric-history chart for one case">
+      <figcaption>Case Review — case selection controls and the metric history the agent and reviewer see before producing a finding.</figcaption>
+    </figure>
+    <figure class="case-shot">
+      <img src="../images/agentic/experiment-comparison.png" alt="Streamlit Experiment Comparison page, bar chart of precision by prompt version on a full 0-to-0.6 axis, mock-provider disclosure banner visible">
+      <figcaption>Experiment Comparison — precision by prompt version, grouped by any axis, with the mock-vs-live caveat stated directly beneath the chart.</figcaption>
+    </figure>
+    <figure class="case-shot">
+      <img src="../images/agentic/methodology-limitations.png" alt="Streamlit Methodology and Limitations page stating the mock-versus-live distinction and known limitations">
+      <figcaption>Methodology &amp; Limitations — the mock-vs-live distinction and known limitations, stated plainly, not in fine print.</figcaption>
+    </figure>
+    <figure class="case-shot">
+      <img src="../images/agentic/calibration.png" alt="Streamlit Calibration page showing a reliability diagram of observed accuracy versus confidence, expected calibration error 0.127, Brier score 0.261, for one experiment condition">
+      <figcaption>Calibration — reliability diagram for one experiment condition (<code>mock_ablation__000</code>); this condition's ECE (0.127) differs slightly from the 0.120 cited above, which is computed on the primary condition — both are real, both are mock-provider figures.</figcaption>
+    </figure>
+
+    <h2>Responsible AI</h2>
+    <p>The system enforces evidence-based conclusions and an explicit observation-vs-hypothesis distinction, requires uncertainty and abstention fields, flags cases for human review via an explicit escalation policy, versions prompts and models, logs provenance, and uses only synthetic data. The agent is positioned as an assistant to analyst judgment, never as a replacement.</p>
+
+    <h2>Limitations</h2>
+    <ul>
+      <li>All reported results are simulation under a documented mock process and do not estimate any real model's behavior.</li>
+      <li>The Anthropic tool-use loop has never been executed against the live API — no key was available in this environment.</li>
+      <li>The deterministic baseline, the surface-pattern unsupported-claim detector, and the escalation policy are documented approximations, not ground truth.</li>
+      <li>The human-review store is a single local SQLite file — not multi-user, not persistent across environments, not access-controlled.</li>
+    </ul>
+
+    <h2>What I'd improve next</h2>
+    <ul>
+      <li>Execute the live Anthropic tool-use path and compare paired results against the mock predictions.</li>
+      <li>OpenAI tool-use parity (currently Anthropic-only for the agentic condition).</li>
+      <li>Add multimodal evidence (chart images) and measure its effect on grounding.</li>
+    </ul>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:0.5rem 1.4rem; justify-content:space-between; align-items:center; width:100%;">
+    <span>&copy; <span id="year"></span> Yullie Yang</span>
+    <span class="foot-links">
+      <a href="../index.html">Back to portfolio</a>
+      <a href="https://github.com/yullieyang/agentic-ai-evaluation-platform">GitHub repo</a>
+    </span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
